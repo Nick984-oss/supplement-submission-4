@@ -12,6 +12,19 @@
 \usepackage{booktabs}
 \usepackage{tabularray}
 \UseTblrLibrary{booktabs}
+
+\DefTblrTemplate{firsthead}{default}{}
+\DefTblrTemplate{middlehead,lasthead}{default}{}
+\DefTblrTemplate{caption-tag}{default}{\textbf{Tab.~\thetable}}
+\DefTblrTemplate{caption-sep}{default}{\textbf{:~}}
+\DefTblrTemplate{lastfoot}{default}{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{remark}{default}
+  \vspace{0.4em}
+  \raggedright\small
+  \UseTblrTemplate{caption-tag}{default}\UseTblrTemplate{caption-sep}{default}\UseTblrTemplate{caption-text}{default}\par
+}
+
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{hyperref}
@@ -57,10 +70,10 @@
 \section*{Anhang A: Codierleitfaden und Item-Traceability}
 \label{sec:anhang-a}
 
-Tabelle~\ref{tab:anhang-a} dokumentiert das final konsolidierte Codesystem der qualitativen Inhaltsanalyse \parencite{mayring2014} sowie die systematische Ableitung der 18 Self-Assessment-Items (einheitliche Antwortskala von 0 bis 5). Jedem Kriterium ist genau ein eindeutiger Code und genau ein Item zugeordnet. Die Literaturanker belegen die Verankerung im wissenschaftlichen Schrifttum, wobei methodisch zwischen direkten Bezügen und theoriegeleiteten, artefaktbezogenen Operationalisierungen unterschieden wird.
+Tab.~\ref{tab:anhang-a} dokumentiert das final konsolidierte Codesystem der qualitativen Inhaltsanalyse \parencite{mayring2014} sowie die systematische Ableitung der 18 Self-Assessment-Items (einheitliche Antwortskala von 0 bis 5). Jedem Kriterium ist genau ein eindeutiger Code und genau ein Item zugeordnet. Die Literaturanker belegen die Verankerung im wissenschaftlichen Schrifttum, wobei methodisch zwischen direkten Bezügen und theoriegeleiteten, artefaktbezogenen Operationalisierungen unterschieden wird.
 
 \begin{longtblr}[
-  caption={Konsolidierter Codierleitfaden und vollständige Item-Traceability (C01--C18)},
+  caption={Konsolidierter Codierleitfaden und vollständige Item-Traceability (C01--C18); Quelle: Eigene Darstellung},
   label={tab:anhang-a},
   entry=none
 ]{
@@ -125,10 +138,10 @@ C-SEC-03 & \textbf{Compliance, Sicherheit und Vertrauen}\newline Transparenz & \
 \section*{Anhang B: Protokoll der Taxonomieentwicklung}
 \label{sec:anhang-b}
 
-Die Taxonomieentwicklung folgte der DSR-orientierten Methodik nach \textcite{nickerson2013} im ersten Konstruktionszyklus \parencite{hevner2004, peffers2007} unter Berücksichtigung etablierter Reifegradmodell-Entwicklungsprinzipien \parencite{becker2009, debruin2005, poeppelbus2011}. Als Meta-Charakteristikum wurde der \textit{Grad organisationaler und interorganisationaler Fähigkeit zur selbstbestimmten, kontrollierten und verantwortungsvollen Gestaltung digitaler Ressourcen in föderierten Bildungsökosystemen} festgelegt. Tabelle~\ref{tab:anhang-b} dokumentiert die erhaltenen Entwicklungsstände von den initialen Literaturkonstrukten über die konsolidierten Zwischendimensionen bis zur finalen sechsteiligen Taxonomie. Die Übergänge stellen eine transparente, modelltheoretische Rekonstruktion auf Basis der erhaltenen Artefaktstände dar; ein historisch lückenloses Sitzungs- oder Diskussionsprotokoll wird ausdrücklich nicht beansprucht.
+Die Taxonomieentwicklung folgte der DSR-orientierten Methodik nach \textcite{nickerson2013} im ersten Konstruktionszyklus \parencite{hevner2004, peffers2007} unter Berücksichtigung etablierter Reifegradmodell-Entwicklungsprinzipien \parencite{becker2009, debruin2005, poeppelbus2011}. Als Meta-Charakteristikum wurde der \textit{Grad organisationaler und interorganisationaler Fähigkeit zur selbstbestimmten, kontrollierten und verantwortungsvollen Gestaltung digitaler Ressourcen in föderierten Bildungsökosystemen} festgelegt. Tab.~\ref{tab:anhang-b} dokumentiert die erhaltenen Entwicklungsstände von den initialen Literaturkonstrukten über die konsolidierten Zwischendimensionen bis zur finalen sechsteiligen Taxonomie. Die Übergänge stellen eine transparente, modelltheoretische Rekonstruktion auf Basis der erhaltenen Artefaktstände dar; ein historisch lückenloses Sitzungs- oder Diskussionsprotokoll wird ausdrücklich nicht beansprucht.
 
 \begin{longtblr}[
-  caption={Retrospektiv rekonstruierte Konsolidierungslogik aus erhaltenen Artefaktständen},
+  caption={Retrospektiv rekonstruierte Konsolidierungslogik aus erhaltenen Artefaktständen; Quelle: Eigene Darstellung},
   label={tab:anhang-b},
   entry=none
 ]{
@@ -168,7 +181,7 @@ Stand 3\newline (final) & 8 Zwischenbereiche aus Stand 2. & Zusammenführung ver
 Die Ex-ante-Evaluation schließt den ersten DSR-Zyklus ab. Sie prüft als interne, dokumentenbasierte Traceability-Analyse die strukturelle Passung zwischen den sechs Designanforderungen (DA1--DA6) und den Komponenten des Artefakts (Dimensionen, Kriterien, Items, Skala, Aggregationslogik). Sie stellt ausdrücklich keinen empirischen Validitätsnachweis dar.
 
 \begin{longtblr}[
-  caption={Traceability-Matrix der Designanforderungen (DA1--DA6)},
+  caption={Traceability-Matrix der Designanforderungen (DA1--DA6); Quelle: Eigene Darstellung},
   label={tab:anhang-c},
   entry=none
 ]{
