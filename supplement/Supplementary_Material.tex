@@ -1,0 +1,734 @@
+\documentclass[10pt,a4paper]{article}
+
+% -----------------------------------------------------------------------------
+% Anonymous online supplement - typeset source
+% Compile with: latexmk -lualatex -interaction=nonstopmode -halt-on-error
+% -----------------------------------------------------------------------------
+\usepackage[a4paper,top=22mm,bottom=23mm,left=22mm,right=22mm,headheight=16pt,footskip=12mm]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\setmainfont{TeXGyrePagellaX}
+\setsansfont{Source Sans Pro}
+\setmonofont{Latin Modern Mono}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{ragged2e}
+\usepackage{needspace}
+\usepackage{pdflscape}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[backend=biber,style=authoryear,maxbibnames=99,sorting=nyt,doi=true,url=true,isbn=false,eprint=false]{biblatex}
+\addbibresource{references.bib}
+
+\definecolor{DeepNavy}{HTML}{17365D}
+\definecolor{AccentBlue}{HTML}{2F6B9A}
+\definecolor{PaleBlue}{HTML}{EAF2F8}
+\definecolor{VeryPaleBlue}{HTML}{F6F9FC}
+\definecolor{SoftRule}{HTML}{CBD5E1}
+\definecolor{BodyGray}{HTML}{263238}
+\definecolor{MutedGray}{HTML}{5B6770}
+\definecolor{WarmGray}{HTML}{F4F2EE}
+\color{BodyGray}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=DeepNavy,
+  urlcolor=AccentBlue,
+  citecolor=DeepNavy,
+  pdftitle={Online-Supplement: Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen},
+  pdfauthor={Anonymous Authors},
+  pdfsubject={Codierleitfaden, Taxonomieentwicklung und konzeptionelle Ex-ante-Evaluation},
+  pdfkeywords={digitale Souveränität, Reifegradmodell, Bildungsökosysteme, Design Science Research, Online-Supplement}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlist[itemize]{leftmargin=1.6em,itemsep=0.25em,topsep=0.35em}
+\setlist[enumerate]{leftmargin=1.8em,itemsep=0.25em,topsep=0.35em}
+\renewcommand{\arraystretch}{1.22}
+
+\titleformat{\section}{\sffamily\bfseries\LARGE\color{DeepNavy}}{\thesection}{0.7em}{}
+\titleformat{\subsection}{\sffamily\bfseries\Large\color{DeepNavy}}{\thesubsection}{0.6em}{}
+\titleformat{\subsubsection}{\sffamily\bfseries\large\color{AccentBlue}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.6em}
+\titlespacing*{\subsection}{0pt}{1.15em}{0.45em}
+\titlespacing*{\subsubsection}{0pt}{0.9em}{0.35em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\small Online-Supplement}
+\fancyhead[R]{\sffamily\small\nouppercase{\leftmark}}
+\fancyfoot[L]{\sffamily\footnotesize Version 1.0 · September 2026}
+\fancyfoot[R]{\sffamily\footnotesize Seite \thepage}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\newtcolorbox{statusbox}{
+  enhanced,
+  breakable,
+  colback=PaleBlue,
+  colframe=AccentBlue,
+  boxrule=0.7pt,
+  arc=1.2mm,
+  left=3.5mm,right=3.5mm,top=2.8mm,bottom=2.8mm,
+  fonttitle=\sffamily\bfseries,
+  title={Methodischer Status und Aussagegrenze}
+}
+
+\newtcolorbox{codecard}[2]{
+  enhanced,
+  colback=white,
+  colframe=SoftRule,
+  boxrule=0.55pt,
+  arc=1.1mm,
+  left=3mm,right=3mm,top=2.8mm,bottom=2.6mm,
+  before skip=0.7em,after skip=0.9em,
+  title={#1\hspace{0.7em}·\hspace{0.7em}#2},
+  coltitle=white,
+  colbacktitle=DeepNavy,
+  fonttitle=\sffamily\bfseries,
+  attach boxed title to top left={xshift=0mm,yshift=-0.1mm},
+  boxed title style={arc=1mm,boxrule=0pt,left=2.4mm,right=2.4mm,top=1.5mm,bottom=1.5mm}
+}
+
+\DefTblrTemplate{contfoot-text}{default}{Fortsetzung auf der nächsten Seite}
+\DefTblrTemplate{conthead-text}{default}{Fortsetzung}
+
+\newcommand{\tableheader}[1]{\textbf{\sffamily #1}}
+\newcommand{\methodtag}[1]{\tcbox[on line,colback=PaleBlue,colframe=AccentBlue,boxrule=0.5pt,arc=1mm,left=1.2mm,right=1.2mm,top=0.4mm,bottom=0.4mm]{\sffamily\footnotesize #1}}
+
+\begin{document}
+
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\thispagestyle{empty}
+\vspace*{18mm}
+{\sffamily\bfseries\color{AccentBlue}\large ONLINE-SUPPLEMENT\par}
+\vspace{6mm}
+{\sffamily\bfseries\color{DeepNavy}\fontsize{27}{32}\selectfont
+Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen\par}
+\vspace{8mm}
+{\sffamily\Large\color{MutedGray}
+Codierleitfaden, Taxonomieentwicklung und konzeptionelle Ex-ante-Evaluation\par}
+\vspace{12mm}
+\noindent\color{AccentBlue}\rule{\textwidth}{1.4pt}
+\vspace{12mm}
+
+\begin{statusbox}
+Dieses Supplement dokumentiert die konzeptionelle Herleitung und interne Traceability des Artefakts. Es stellt weder eine empirische Evaluation realer Bildungsorganisationen noch einen psychometrischen Validitätsnachweis dar. Aussagen zur tatsächlichen Verständlichkeit, praktischen Anwendbarkeit, Vollständigkeit und Messvalidität bleiben nachfolgenden DSR-Zyklen vorbehalten.
+\end{statusbox}
+
+\vfill
+\begin{tabularx}{\textwidth}{@{}>{\sffamily\bfseries\color{DeepNavy}}p{0.29\textwidth}X@{}}
+Dokumenttyp & Anonymisiertes Online-Supplement zur Begutachtung \\
+Version & 1.0 \\
+Stand & September 2026 \\
+Enthaltene Teile & S1 Codierleitfaden und Item-Traceability; S2 Protokoll der Taxonomieentwicklung; S3 erweiterte konzeptionelle Ex-ante-Evaluation \\
+\end{tabularx}
+\vspace*{10mm}
+\end{titlepage}
+\hypersetup{pageanchor=true}
+
+\pagenumbering{roman}
+\tableofcontents
+\clearpage
+\pagenumbering{arabic}
+
+\section*{Hinweise zur Nutzung}
+\addcontentsline{toc}{section}{Hinweise zur Nutzung}
+
+Das Supplement erweitert die im Hauptbeitrag notwendigerweise komprimierte Darstellung, ersetzt den Haupttext jedoch nicht. Im Manuskript kann auf die Bestandteile mit \enquote{Online-Supplement, S1}, \enquote{Online-Supplement, S2} und \enquote{Online-Supplement, S3} verwiesen werden.
+
+\begin{itemize}
+  \item \textbf{S1} dokumentiert das final konsolidierte Codesystem und die Rückverfolgbarkeit von Literaturankern über Dimensionen und Kriterien bis zu den 18 Self-Assessment-Items.
+  \item \textbf{S2} dokumentiert die erhaltenen Entwicklungsstände, die nachvollziehbaren Konsolidierungsentscheidungen sowie die Qualitäts- und Abbruchprüfung der Taxonomie.
+  \item \textbf{S3} prüft die Traceability der sechs Designanforderungen gegen die Komponenten des Artefakts und weist verbleibenden empirischen Prüfbedarf aus.
+\end{itemize}
+
+\begin{statusbox}
+Ein vollständiges historisches Recherche- und Screeningprotokoll mit belastbaren Treffer- und Ausschlusszahlen ist nicht Bestandteil dieses Supplements. Es werden keine nachträglich geschätzten oder rekonstruierten Screeningzahlen ausgewiesen.
+\end{statusbox}
+
+\clearpage
+\section{S1 – Codierleitfaden und Item-Traceability}
+\label{supp:s1}
+
+\subsection{Zweck und Reichweite}
+
+Dieser Supplementteil dokumentiert das \textbf{finale Codesystem} der qualitativen Inhaltsanalyse und die anschließende konzeptionelle Operationalisierung in 18 Self-Assessment-Items. Die Literaturanker dienen als exemplarische Belege für die jeweils abstrahierten Konzepte. Die Items sind keine wörtlichen Übernahmen aus der Literatur, sondern artefaktbezogene Formulierungen für den Anwendungskontext föderierter Bildungsökosysteme.
+
+Die Traceability zeigt eine nachvollziehbare Verbindung zwischen Literaturkonzept, Code, Kriterium und Item. Sie begründet damit die konzeptionelle Ableitung, ersetzt jedoch weder eine vollständige Dokumentation sämtlicher codierter Textsegmente noch eine empirische Inhalts- oder Konstruktvalidierung des Instruments.
+
+\subsection{Codierlogik}
+
+\begin{description}[style=nextline,leftmargin=35mm,labelwidth=31mm,font=\sffamily\bfseries\color{DeepNavy}]
+  \item[Kodiereinheit] Inhaltlich zusammenhängende Textpassage, die eine organisationale, technische, datenbezogene, rechtliche oder interorganisationale Fähigkeit zur Gestaltung digitaler Souveränität beschreibt.
+  \item[Kontexteinheit] Die jeweilige Publikation beziehungsweise das relevante Kapitel, die Tabelle oder der Architekturabschnitt.
+  \item[Auswertungseinheit] Der für die Artefaktkonstruktion berücksichtigte Literaturkorpus.
+  \item[Zuordnungsregel] Eine Passage wird dem spezifischsten passenden Code zugeordnet. Bei inhaltlicher Nähe entscheiden Definition, Einschlussregel und Abgrenzung. Mehrfachbezüge können in der analytischen Notiz festgehalten werden; für die finale Taxonomie wird jedes Kriterium genau einer Hauptdimension zugeordnet.
+  \item[Konsensbildung] Abweichende Zuordnungen wurden zwischen den Autoren diskutiert und in einer gemeinsamen Endfassung konsolidiert. Ein statistischer Inter-Coder-Koeffizient wurde nicht berechnet.
+\end{description}
+
+\subsection{Vollständige Traceability}
+\subsection{Governance und Entscheidungsautonomie}
+\label{supp:dimension-1}
+
+\begin{codecard}{C-GOV-01}{Digitale Strategie}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Institutionell verankerte strategische Orientierung für die selbstbestimmte Gestaltung und Steuerung digitaler Infrastrukturen, Dienste und Daten. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu expliziten Zielen, Leitlinien, Roadmaps oder Planungen für souveräne beziehungsweise kontrollierbare digitale Infrastrukturen und Dienste. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Einzelne technische Maßnahmen ohne strategischen Bezugsrahmen sowie operative Zuständigkeits- oder Beschlussfragen. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Das BMBF beschreibt den Aufbau einer zeitgemäßen bundesweiten Infrastruktur für digitale Bildung als übergeordnetes strategisches Ziel. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & BMBF (2024), Architekturkonzept Mein Bildungsraum, Zielsetzung. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Unsere Institution verfügt über eine dokumentierte Strategie zur souveränen Gestaltung digitaler Infrastrukturen.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Die Existenz einer dokumentierten Strategie macht die strategische Verankerung als beobachtbares organisationales Merkmal bewertbar. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-GOV-02}{Verantwortlichkeiten}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Formale Zuordnung von Rollen, Zuständigkeiten und Rechenschaftspflichten für digitale Souveränität und gemeinsam genutzte digitale Dienste. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu benannten Rollen, Verantwortungsbereichen, rechtlichen oder wirtschaftlichen Pflichten und organisatorischer Rechenschaft. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Entscheidungsverfahren ohne Rollenzuordnung sowie informelle Mitarbeit ohne festgelegte Verantwortung. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Das Gaia-X-/IDSA-Regelwerk ordnet technische Rollen wirtschaftlichen und rechtlichen Verantwortlichkeiten zu. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Gaia-X/IDSA (2023), Rulebook/Trust Framework, Abschnitte zu Rollen und Verantwortlichkeiten. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Rollen und Verantwortlichkeiten für digitale Souveränität sind eindeutig definiert.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Eindeutig definierte Rollen sind ein unmittelbar prüfbarer Indikator für institutionalisierte Verantwortungsstrukturen. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-GOV-03}{Entscheidungsprozesse}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Nachvollziehbare Verfahren und Gremien für Entscheidungen über zentrale digitale Dienste, Dateninfrastrukturen und Kooperationsregeln. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu institutionalisierten Gremien, Beschlusswegen, Beteiligungsverfahren und dokumentierter Entscheidungsfindung. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Reine Rollendefinitionen sowie technische Automatisierung ohne Governance-Entscheidung. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Otto und Jarke beschreiben die Governance einer organisationsübergreifenden Datenplattform durch eine institutionalisierte Allianz verschiedener Stakeholder. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Otto und Jarke (2019), S. 561. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Entscheidungen über zentrale digitale Dienste erfolgen transparent und nachvollziehbar.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Transparenz und Nachvollziehbarkeit operationalisieren die formale Ausgestaltung interorganisationaler Beschlussprozesse. \\
+\end{tabularx}
+\end{codecard}
+
+\subsection{Daten- und Informationssouveränität}
+\label{supp:dimension-2}
+
+\begin{codecard}{C-DAT-01}{Dateninventar}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Systematische Übersicht über wesentliche Datenbestände, Datenverantwortlichkeiten und organisationsinterne beziehungsweise -übergreifende Datenflüsse. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Datenkatalogen, Datenwörterbüchern, Metadatenverzeichnissen, Datenbeständen oder dokumentierten Datenflüssen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Zugriffs- und Nutzungsregeln ohne Bestandsübersicht. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Die OECD hebt die Dokumentation administrativer Datensätze und öffentlich verfügbare Datenwörterbücher als Voraussetzung für nachvollziehbaren Datenzugang hervor. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & OECD (2023), S. 227. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Unsere Institution verfügt über eine Übersicht zentraler Datenbestände und Datenflüsse.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Eine institutionelle Übersicht über Bestände und Flüsse bildet die Voraussetzung, um Daten kontrollieren und Verantwortlichkeiten zuordnen zu können. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-DAT-02}{Zugriffskontrolle}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Organisatorische und technische Regeln, die festlegen, welche Personen oder Systeme auf sensible Daten zugreifen dürfen und wie Zugriffe nachvollzogen werden. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Autorisierung, Authentifizierung, feingranularem Zugriff, Zugriffsbeschränkung und Protokollierung von Datenzugriffen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Regeln zum Verwendungszweck nach erfolgtem Zugriff; diese werden unter Datennutzung codiert. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Opriel et al. beschreiben abgestufte Zugriffsrechte, autorisierte Systeme und die sichtbare Protokollierung einzelner Datenanfragen. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Opriel et al. (2025), S. 839-840. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Zugriffe auf sensible Daten sind geregelt, dokumentiert und überprüfbar.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item verbindet formale Zugriffsregeln mit Dokumentation und Prüfbarkeit und bildet damit sowohl Steuerung als auch Nachweisfähigkeit ab. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-DAT-03}{Datennutzung}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Festgelegte Bedingungen für Verarbeitung, Weitergabe, Verwendungszweck, Aufbewahrung und Löschung von Daten. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Usage-Control-Regeln, Nutzungsvereinbarungen, Zweckbindung, Weitergabeverboten, Aufbewahrungsfristen oder Löschpflichten. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Die vorgelagerte Berechtigung zum Datenzugriff sowie reine Bestandsdokumentation. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Von Scherenberg et al. ordnen vertraglich vereinbarte Nutzungsbedingungen und deren Durchsetzung den Kernelementen von Datensouveränität zu. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & von Scherenberg et al. (2024), Tabelle 2. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Regeln zur Nutzung, Weitergabe und Verarbeitung von Daten sind definiert.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Definierte Nutzungsregeln übersetzen die abstrakte Kontrolle über den Datenlebenszyklus in ein organisationsbezogen bewertbares Merkmal. \\
+\end{tabularx}
+\end{codecard}
+
+\subsection{Technologische Abhängigkeiten}
+\label{supp:dimension-3}
+
+\begin{codecard}{C-TEC-01}{Anbieterabhängigkeit}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Transparenz über kritische Abhängigkeiten von Plattformen, Cloud-Angeboten, proprietären Komponenten und externen Dienstleistern. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Vendor Lock-in, Machtpositionen von Dienstleistern, proprietären Abhängigkeiten oder fehlender eigener technischer Kontrolle. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Konkrete Migrations- oder Ausstiegsmöglichkeiten; diese werden unter Exit-Fähigkeit codiert. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Opriel et al. begründen selbstadministrierte, dezentrale Lösungen unter anderem mit der Vermeidung ungewollter Abhängigkeiten und Machtpositionen externer Dienstleister. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Opriel et al. (2025), S. 839 und 846-847. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Kritische Abhängigkeiten von externen Plattformen oder Dienstleistern sind bekannt.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Eine belastbare Steuerung technologischer Abhängigkeiten setzt zunächst deren systematische Kenntnis voraus. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-TEC-02}{Exit-Fähigkeit}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Fähigkeit, zentrale digitale Dienste, Daten und Prozesse innerhalb vertretbarer Fristen und Aufwände zu alternativen Lösungen zu migrieren oder zurückzuführen. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Migration, Portabilität, Rückfalloptionen, Substitution und kontrolliertem Anbieterwechsel. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Allgemeine Kenntnis einer Abhängigkeit ohne konkreten Ausstiegs- oder Migrationspfad. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Von Scherenberg et al. beziehen die Freiheit, Daten bei Bedarf zu migrieren, ausdrücklich in ihr Verständnis von Datensouveränität ein. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & von Scherenberg et al. (2024), Tabelle 1. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Für zentrale digitale Dienste bestehen Exit-Strategien oder Alternativen.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Dokumentierte Exit-Strategien oder Alternativen bilden die organisationale Fähigkeit ab, eine Abhängigkeit tatsächlich zu beenden oder zu reduzieren. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-TEC-03}{Vertragsgestaltung}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Vertragliche Absicherung von Datenkontrolle, Portabilität, Rückgabe, Löschung, Auditierbarkeit und Beendigung bei extern bezogenen digitalen Diensten. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Vertragsklauseln, Datenrückgabe, Portabilität, Löschpflichten, Nutzungsbeschränkungen und Anbieterwechsel. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Allgemeine Datenschutzregelungen ohne Bezug zu Dienstleisterverträgen oder Portabilität. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Die OECD beschreibt Vereinbarungen, die kommerzielle Weiterverwendung beschränken und eine einfache Rückgewinnung von Daten ermöglichen. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & OECD (2023), S. 224. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Verträge mit Dienstleistern berücksichtigen Anforderungen an Datenkontrolle und Portabilität.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item fokussiert die zwei für einen souveränen Anbieterwechsel zentralen Vertragsziele: fortbestehende Datenkontrolle und technische beziehungsweise rechtliche Portabilität. \\
+\end{tabularx}
+\end{codecard}
+
+\subsection{Interoperabilität und Föderationsfähigkeit}
+\label{supp:dimension-4}
+
+\begin{codecard}{C-INT-01}{Offene Standards}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Nutzung dokumentierter, zugänglicher und möglichst herstellerneutraler Standards für Datenformate, Semantik und Diensteintegration. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu offenen Standards, standardisierten Datenformaten, gemeinsamen Semantiken oder herstellerneutraler Anschlussfähigkeit. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Konkrete technische Endpunkte oder APIs ohne Aussage zum zugrunde liegenden Standard. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Das Architekturkonzept von Mein Bildungsraum verbindet souveräne Bildungsdateninfrastrukturen mit europäischer Anschlussfähigkeit und offenen Standards. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & BMBF (2024), Architekturkonzept Mein Bildungsraum. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Für den Austausch von Daten und Diensten werden offene Standards genutzt.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Die tatsächliche Nutzung offener Standards ist als institutionelle Praxis bewertbar und reduziert proprietäre Integrationsbarrieren. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-INT-02}{Schnittstellen}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Dokumentierte technische Schnittstellen, über die zentrale Systeme kontrolliert Daten und Funktionen austauschen können. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu APIs, Bridges, Konnektoren, Integrationspunkten und dokumentierten Systemgrenzen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Allgemeine Standardisierung ohne konkret verfügbare Schnittstelle sowie rein organisatorische Zusammenarbeit. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Opriel et al. beschreiben eine standardisierte API und Bridge-Implementierungen zur direkten Integration unterschiedlicher Systeme. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Opriel et al. (2025), S. 840. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Zentrale Systeme verfügen über dokumentierte Schnittstellen.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Dokumentierte Schnittstellen sind ein direkt prüfbarer Indikator technischer Anschlussfähigkeit. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-INT-03}{Föderierte Zusammenarbeit}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Technisch und organisatorisch geregelte Kooperation rechtlich eigenständiger Institutionen über gemeinsame digitale Prozesse und Infrastrukturen. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu interorganisationalen Prozessen, gemeinsamen Governance-Regeln, föderierten Plattformen und institutionalisierter Zusammenarbeit. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Reine Systemintegration innerhalb einer einzelnen Institution sowie ausschließlich bilaterale Vertragsklauseln ohne gemeinsamen Prozess. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Otto und Jarke beschreiben einen organisationsübergreifenden Datenaustausch, der durch eine institutionalisierte Stakeholder-Allianz getragen wird; Mein Bildungsraum adressiert gemeinsame Bildungsnachweise und Daten über institutionelle Grenzen hinweg. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Otto und Jarke (2019), S. 561; BMBF (2024), Architekturkonzept Mein Bildungsraum. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Institutionenübergreifende digitale Prozesse sind technisch und organisatorisch geregelt.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item operationalisiert Föderationsfähigkeit nicht nur technisch, sondern als abgestimmtes Zusammenspiel von Prozessen und Governance. \\
+\end{tabularx}
+\end{codecard}
+
+\subsection{Kompetenz und organisationale Fähigkeiten}
+\label{supp:dimension-5}
+
+\begin{codecard}{C-KOM-01}{Fachkompetenz}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Verfügbarkeit von Wissen und Fähigkeiten zu Datenmanagement, Plattformen, digitaler Governance, Sicherheit und interorganisationaler Zusammenarbeit. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu erforderlichen digitalen Kompetenzen, Qualifikationen und fachlichem Know-how relevanter Rollen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Konkrete Trainingsangebote ohne Aussage zum vorhandenen Kompetenzstand. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Die OECD ordnet digitale Kompetenzen den grundlegenden Fähigkeiten zu, die durch Aus- und Weiterbildung aufgebaut werden müssen. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & OECD (2023), S. 185. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Relevante Mitarbeitende verfügen über Kompetenzen zu Daten, Plattformen und digitaler Governance.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item prüft den erreichten Kompetenzbestand, unabhängig davon, durch welche Maßnahmen er aufgebaut wurde. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-KOM-02}{Schulung}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Institutionalisierte Angebote zur Qualifizierung und Sensibilisierung für Anforderungen digitaler Souveränität. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Training, Beratung, Weiterbildung, Sensibilisierung und Kompetenzentwicklungsprogrammen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Vorhandene individuelle Kompetenz ohne organisierte Entwicklungsmaßnahme. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Abbas et al. nennen Beratungs- und Trainingsangebote als mögliche Unterstützungsleistung für Akteure in Datenökosystemen. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Abbas et al. (2024), S. 20. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Es existieren Schulungs- oder Sensibilisierungsangebote zu digitaler Souveränität.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Die Existenz wiederholbarer Angebote zeigt, dass Kompetenzentwicklung nicht ausschließlich informell erfolgt. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-KOM-03}{Lernfähigkeit}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Fähigkeit einer Institution, Erfahrungen, Evaluationsergebnisse und Veränderungen systematisch zu reflektieren und in Anpassungen zu überführen. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Feedbackschleifen, Evaluation, Reflexion, kontinuierlicher Verbesserung und Anpassung organisationaler Fähigkeiten. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Einmalige Schulungsmaßnahmen ohne Rückkopplungs- oder Verbesserungsprozess. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Stoiber et al. begründen nachhaltige Reifegradentwicklung mit wiederkehrender Evaluation, Reflexion und Anpassung. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Stoiber et al. (2023), S. 704. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Erfahrungen aus digitalen Projekten werden systematisch ausgewertet und genutzt.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Die systematische Nutzung von Projekterfahrungen bildet eine beobachtbare organisationale Feedback- und Lernschleife ab. \\
+\end{tabularx}
+\end{codecard}
+
+\subsection{Compliance, Sicherheit und Vertrauen}
+\label{supp:dimension-6}
+
+\begin{codecard}{C-SEC-01}{Datenschutz}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Systematische Berücksichtigung datenschutzrechtlicher Anforderungen über den Lebenszyklus digitaler Dienste und Datenverarbeitungen. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Datenschutz, Privacy, regulatorischen Vorgaben, Zuständigkeiten und Datenschutzressourcen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Allgemeine Informationssicherheit ohne personenbezogenen oder datenschutzrechtlichen Bezug. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Die OECD verknüpft Data Governance mit Regeln, Zuständigkeiten und Ressourcen zur Sicherstellung von Privacy und Datenschutz. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & OECD (2023), S. 210. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Datenschutzanforderungen werden bei digitalen Diensten systematisch berücksichtigt.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item adressiert Datenschutz als wiederkehrenden Bestandteil der Dienstgestaltung und nicht als punktuelle Einzelprüfung. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-SEC-02}{Informationssicherheit}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Systematische Identifikation, Bewertung und Behandlung von Risiken digitaler Infrastrukturen und Datenverarbeitungen. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Sicherheitsstandards, Verschlüsselung, Authentifizierung, Risikoanalysen, Audits und Schutzmaßnahmen. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Datenschutzrechtliche Fragen ohne technischen oder organisatorischen Sicherheitsbezug. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Opriel et al. behandeln Sicherheit als zentrales Element von Datensouveränität und nennen unter anderem Transport- und Datenbankverschlüsselung sowie Authentifizierung. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Opriel et al. (2025), S. 840. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Risiken digitaler Infrastrukturen werden regelmäßig bewertet.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Regelmäßige Risikobewertung ist ein organisationsweit anwendbarer Indikator für institutionalisierte Informationssicherheit, ohne einzelne Technologien vorzuschreiben. \\
+\end{tabularx}
+\end{codecard}
+
+\begin{codecard}{C-SEC-03}{Transparenz}
+\begin{tabularx}{\linewidth}{@{}>{\RaggedRight\arraybackslash\bfseries\color{DeepNavy}}p{0.245\linewidth}>{\RaggedRight\arraybackslash}X@{}}
+Konzeptdefinition & Nachvollziehbarkeit von Regeln, Verantwortlichkeiten, Datenzugriffen und Entscheidungen für die beteiligten Akteure eines digitalen Verbunds. \\
+\arrayrulecolor{SoftRule}\hline
+Einschlussregel & Textstellen zu Protokollierung, Sichtbarkeit, Nachweisbarkeit, auditierbaren Regeln und verständlicher Kommunikation von Verantwortlichkeiten. \\
+\arrayrulecolor{SoftRule}\hline
+Abgrenzung & Reine technische Offenlegung von Quellcode ohne Bezug zur Nachvollziehbarkeit der Zusammenarbeit. \\
+\arrayrulecolor{SoftRule}\hline
+Literaturanker & Opriel et al. operationalisieren Transparenz durch für Systemnutzende sichtbare Protokollierung von Datenanfragen und -zugriffen. \\
+\arrayrulecolor{SoftRule}\hline
+Quelle/Fundstelle & Opriel et al. (2025), S. 839. \\
+\arrayrulecolor{SoftRule}\hline
+Self-Assessment-Item & \textbf{Regeln und Verantwortlichkeiten digitaler Zusammenarbeit sind für Beteiligte nachvollziehbar.} \\
+\arrayrulecolor{SoftRule}\hline
+Operationalisierungslogik & Das Item überträgt technische Nachvollziehbarkeit auf die interorganisationale Governance und erfasst, ob Beteiligte Regeln und Verantwortlichkeiten verstehen und prüfen können. \\
+\end{tabularx}
+\end{codecard}
+
+\clearpage
+\section{S2 – Protokoll der Taxonomieentwicklung}
+\label{supp:s2}
+
+\subsection{Zweck und Dokumentationsstatus}
+
+Dieser Supplementteil dokumentiert die erhaltenen und aus den vorliegenden Artefaktständen rekonstruierbaren Schritte der Taxonomieentwicklung. Die ursprüngliche Arbeitsfassung enthielt drei Entwicklungsstände, dokumentierte den Übergang von zwölf Ausgangskonstrukten zu acht Zwischendimensionen jedoch nicht vollständig. Die nachfolgende Darstellung schließt diese logische Lücke \textbf{durch einen transparent gekennzeichneten Vergleich der erhaltenen Ausgangs-, Zwischen- und Endstände}. Sie behauptet keine unabhängig protokollierte historische Reihenfolge jeder einzelnen Konsolidierungsentscheidung.
+
+Das MECE-Prinzip wurde als heuristische Prüflogik für eine möglichst überschneidungsarme und hinreichend umfassende Struktur verwendet. Eine empirisch nachgewiesene vollständige Disjunktheit oder Erschöpfung der Problemdomäne wird nicht beansprucht.
+
+\subsection{Meta-Charakteristikum}
+
+Meta-Charakteristikum der Taxonomie ist der \textbf{Grad organisationaler und interorganisationaler Fähigkeit zur selbstbestimmten, kontrollierten und verantwortungsvollen Gestaltung digitaler Ressourcen in föderierten Bildungsökosystemen}. Berücksichtigt werden damit Merkmale, die als steuer- oder bewertbare Fähigkeiten von Institutionen beziehungsweise Verbünden operationalisiert werden können.
+
+\subsection{Entwicklungsstände und Konsolidierungsentscheidungen}
+
+\subsubsection{Entwicklungsstand 1: initiale Literaturkonstrukte}
+
+Aus der konzeptorientierten Literaturauswertung wurden zwölf vorläufige Konstrukte gebildet:
+
+\begin{multicols}{2}
+\begin{enumerate}[label=\arabic*.]
+  \item IT-Strategie
+  \item Rollen und Verantwortlichkeiten
+  \item Datenarchitektur
+  \item Datenzugriffsrechte
+  \item Vendor Management
+  \item Cloud Lock-in
+  \item API-Schnittstellen
+  \item Datenstandards
+  \item Mitarbeiterwissen
+  \item Schulungsprozesse
+  \item Datenschutz
+  \item IT-Sicherheit
+\end{enumerate}
+\end{multicols}
+
+\textbf{Prüfergebnis:} Der Stand war für ein kompaktes Reifegradmodell zu granular und enthielt semantische Überschneidungen, insbesondere zwischen Vendor Management und Cloud Lock-in sowie zwischen Mitarbeiterwissen und Schulungsprozessen.
+
+\subsubsection{Entwicklungsstand 2: acht Zwischendimensionen}
+
+Durch Vergleich der erhaltenen Ausgangs- und Zwischenstände lassen sich folgende Konsolidierungen nachvollziehen:
+
+\begin{longtblr}[
+  caption={Konsolidierung der Ausgangskonstrukte zu acht Zwischendimensionen},
+  label={tab:s2-intermediate},
+  entry=none,
+  note{a}={Die Darstellung rekonstruiert die logisch nachvollziehbaren Beziehungen zwischen den erhaltenen Entwicklungsständen; sie beansprucht kein zeitgenössisch geführtes Entscheidungsprotokoll.}
+]{
+  width=\textwidth,
+  colspec={Q[l,wd=0.235\textwidth] Q[l,wd=0.14\textwidth] Q[l,wd=0.21\textwidth] X[l]},
+  rowhead=1,
+  row{1}={bg=DeepNavy,fg=white,font=\sffamily\bfseries},
+  row{2-Z}={font=\small},
+  hlines={0.35pt,SoftRule},
+  vlines={0.25pt,SoftRule},
+  cells={valign=t},
+  colsep=4pt,rowsep=4pt
+}
+Ausgangskonstrukte & Operation & Zwischendimension & Begründung \\
+IT-Strategie + Rollen und Verantwortlichkeiten & Zusammenführung & Strategie/Rollen & Strategische Steuerung wird erst durch zugeordnete Verantwortung organisational wirksam. \\
+Datenarchitektur + Datenzugriffsrechte & Zusammenführung & Datenhoheit & Übersicht, Struktur und kontrollierter Zugriff sind komplementäre Voraussetzungen organisationaler Datenkontrolle. \\
+Vendor Management + Cloud Lock-in & Zusammenführung & Technologische Abhängigkeiten & Beide Konstrukte adressieren die Steuerung externer technologischer Abhängigkeiten. \\
+API-Schnittstellen + Datenstandards & Zusammenführung & Technische Interoperabilität & Schnittstellen und Standards bilden gemeinsam die technische Anschlussfähigkeit. \\
+Mitarbeiterwissen + Schulungsprozesse & Zusammenführung & Kompetenz & Vorhandene Fähigkeiten und deren organisierter Aufbau werden als zusammenhängende organisationale Capability betrachtet. \\
+Literaturbefunde zu IOIS, Datenräumen und Bildungsverbünden & Induktive Ergänzung & Föderierte Netzwerke & Der interorganisationale Untersuchungsgegenstand erfordert eine eigenständige Berücksichtigung gemeinsamer Prozesse und Governance. \\
+Datenschutz & Beibehaltung & Datenschutz & Eigenständiger regulatorischer Fokus. \\
+IT-Sicherheit & Beibehaltung & IT-Sicherheit & Eigenständiger technischer und organisatorischer Risikofokus. \\
+\end{longtblr}
+
+Damit ergibt sich der dokumentierte Zwischenstand aus acht Dimensionen: Strategie/Rollen, Datenhoheit, Technologische Abhängigkeiten, Technische Interoperabilität, Föderierte Netzwerke, Kompetenz, Datenschutz und IT-Sicherheit.
+
+\textbf{Prüfergebnis:} Der Zwischenstand bildete die zentralen Perspektiven ab, wies jedoch weiterhin enge Beziehungen zwischen technischer Interoperabilität und föderierter Kooperation sowie zwischen Datenschutz, Sicherheit und Vertrauen auf.
+
+\subsubsection{Entwicklungsstand 3: finale Taxonomie}
+
+\begin{longtblr}[
+  caption={Überführung der Zwischendimensionen in die finale Taxonomie},
+  label={tab:s2-final},
+  entry=none
+]{
+  width=\textwidth,
+  colspec={Q[l,wd=0.27\textwidth] Q[l,wd=0.28\textwidth] X[l]},
+  rowhead=1,
+  row{1}={bg=DeepNavy,fg=white,font=\sffamily\bfseries},
+  row{2-Z}={font=\small},
+  hlines={0.35pt,SoftRule},
+  vlines={0.25pt,SoftRule},
+  cells={valign=t},
+  colsep=4pt,rowsep=4pt
+}
+Zwischendimension(en) & Finale Dimension & Modifikation und Begründung \\
+Strategie/Rollen & Governance und Entscheidungsautonomie & Präzisierung auf strategische Steuerung, Verantwortlichkeiten und nachvollziehbare Entscheidungsprozesse. \\
+Datenhoheit & Daten- und Informationssouveränität & Präzisierung auf Datenbestände, Zugriff und Nutzungsregeln. \\
+Technologische Abhängigkeiten & Technologische Abhängigkeiten & Beibehaltung; Konkretisierung durch Anbieterabhängigkeit, Exit-Fähigkeit und Vertragsgestaltung. \\
+Technische Interoperabilität + Föderierte Netzwerke & Interoperabilität und Föderationsfähigkeit & Zusammenführung, weil technische Anschlussfähigkeit und organisationsübergreifende Prozessfähigkeit im Verbund gemeinsam wirksam werden. \\
+Kompetenz & Kompetenz und organisationale Fähigkeiten & Erweiterung um institutionalisierte Lern- und Entwicklungsfähigkeit. \\
+Datenschutz + IT-Sicherheit; ergänzt um Transparenz- und Vertrauensaspekte & Compliance, Sicherheit und Vertrauen & Bündelung eng verbundener regulatorischer, sicherheitsbezogener und nachvollziehbarkeitsorientierter Voraussetzungen vertrauenswürdiger Zusammenarbeit. \\
+\end{longtblr}
+
+\textbf{Ergebnis:} sechs Dimensionen mit insgesamt 18 Kriterien. Die Zuordnung von genau drei Kriterien pro Dimension ist eine nachgelagerte Designentscheidung zugunsten eines kompakten, gleichförmig aufgebauten Self-Assessments. Sie ist kein eigenständiger Nachweis der Validität oder Vollständigkeit der Taxonomie.
+
+\subsection{Qualitäts- und Abbruchprüfung}
+
+Die folgenden Kriterien beziehen sich auf die Qualität der Taxonomie und sind von den sechs Designanforderungen an das Reifegradmodell zu unterscheiden.
+
+\begin{longtblr}[
+  caption={Konzeptionelle Qualitätsprüfung der Taxonomie},
+  label={tab:s2-quality},
+  entry=none
+]{
+  width=\textwidth,
+  colspec={Q[l,wd=0.21\textwidth] Q[l,wd=0.34\textwidth] X[l]},
+  rowhead=1,
+  row{1}={bg=DeepNavy,fg=white,font=\sffamily\bfseries},
+  row{2-Z}={font=\small},
+  hlines={0.35pt,SoftRule},
+  vlines={0.25pt,SoftRule},
+  cells={valign=t},
+  colsep=4pt,rowsep=4pt
+}
+Qualitätskriterium & Konzeptionelle Prüfung & Ergebnis und Grenze \\
+Verständlichkeit & Sind Bezeichnungen und Kriterien für den Anwendungskontext sprachlich nachvollziehbar? & Durch einheitliche Benennung und konkrete Kriterien konzeptionell adressiert; empirische Prüfung mit Anwenderinnen und Anwendern ausstehend. \\
+Trennschärfe & Besitzen die Dimensionen unterschiedliche primäre Gegenstände und sind Nachbarcodes abgegrenzt? & Durch Definitionen und Ausschlussregeln verbessert; empirische Prüfung von Überschneidungen ausstehend. \\
+Vollständigkeit relativ zur Forschungsfrage & Decken die Dimensionen die im berücksichtigten Korpus identifizierten technischen, datenbezogenen, organisationalen, rechtlichen und interorganisationalen Aspekte ab? & Für den betrachteten Korpus konzeptionell adressiert; kein Anspruch auf vollständige Erschöpfung aller denkbaren Aspekte. \\
+Operationalisierbarkeit & Können die Kriterien in beobachtbare beziehungsweise bewertbare Items überführt werden? & Durch 18 Self-Assessment-Items umgesetzt; Inhalts- und Messvalidität empirisch offen. \\
+Erweiterbarkeit & Können Dimensionen, Kriterien und Items in späteren DSR-Zyklen angepasst werden? & Durch modular getrennte Artefaktkomponenten konzeptionell gegeben; Änderungen erfordern erneute Evaluation. \\
+\end{longtblr}
+
+\subsubsection{Stabilitätsprüfung im Revisionszyklus}
+
+Nach Festlegung der sechs Dimensionen wurden das final konsolidierte Codesystem, die 18 Kriterien und die zugehörigen Self-Assessment-Items erneut gegen das Meta-Charakteristikum und die fünf Qualitätskriterien geprüft. In diesem abschließenden Revisionsschritt waren keine Ergänzungen, Aufteilungen, Zusammenführungen oder Umbenennungen der Dimensionen und Kriterien erforderlich; alle 18 Codes blieben eindeutig einer Dimension und einem Kriterium zugeordnet. Dieser dokumentenbasierte Stabilitätsschritt bildet die formale Abbruchbedingung des ersten konzeptionellen Konstruktionszyklus. Er belegt weder empirische Vollständigkeit noch Validität.
+
+Die Beendigung kennzeichnet somit den Abschluss des \textbf{konzeptionellen Entwicklungszyklus}, nicht den Abschluss der empirischen Validierung.
+
+\section{S3 – Erweiterte konzeptionelle Ex-ante-Evaluation}
+\label{supp:s3}
+
+\subsection{Evaluationsziel}
+
+Die Ex-ante-Evaluation schließt den ersten konzeptionellen DSR-Zyklus ab. Sie prüft die \textbf{Traceability und strukturelle Passung} zwischen den sechs Designanforderungen und den Komponenten des entwickelten Artefakts. Da keine Anwendung durch reale Bildungsorganisationen und keine externe Expertenevaluation vorliegt, ist die Prüfung ausdrücklich \textbf{kein empirischer Validitätsnachweis}.
+
+\subsection{Vorgehen}
+
+\begin{enumerate}
+  \item Die sechs Designanforderungen werden in prüfbare Evaluationsfragen überführt.
+  \item Jede Evaluationsfrage wird den relevanten Artefaktkomponenten zugeordnet: Dimensionenmodell, Kriterien- und Itemkatalog, Bewertungsskala, Reifegradlogik und Ergebnisdarstellung.
+  \item Die vorhandene konzeptionelle Evidenz wird dokumentiert.
+  \item Das Ergebnis wird als \enquote{formal umgesetzt}, \enquote{konzeptionell adressiert} oder \enquote{teilweise adressiert} eingeordnet.
+  \item Für jede Anforderung wird der verbleibende empirische Prüfbedarf ausgewiesen.
+\end{enumerate}
+
+Die Bewertung wurde von den Autoren als interne, dokumentenbasierte Traceability-Prüfung durchgeführt.
+
+\subsection{Designanforderungen}
+
+\begin{description}[style=nextline,leftmargin=25mm,labelwidth=21mm,font=\sffamily\bfseries\color{DeepNavy}]
+  \item[DA1] \textbf{Mehrdimensionalität:} Das Modell bildet technische, datenbezogene, organisationale, rechtliche und interorganisationale Aspekte digitaler Souveränität ab.
+  \item[DA2] \textbf{Operationalisierung:} Abstrakte Dimensionen werden durch Kriterien und konkrete Self-Assessment-Items bewertbar gemacht.
+  \item[DA3] \textbf{Kompakte Anwendbarkeit:} Das Instrument ist mit begrenztem Erhebungsumfang als Self-Assessment einsetzbar.
+  \item[DA4] \textbf{Vergleichbarkeit:} Einheitliche Skalen und Berechnungsregeln ermöglichen dimensions- und institutionsbezogene Gegenüberstellungen.
+  \item[DA5] \textbf{Handlungsorientierung:} Das Modell macht Entwicklungsfelder und prioritäre Verbesserungsbedarfe sichtbar.
+  \item[DA6] \textbf{Erweiterbarkeit und Evaluierbarkeit:} Das Artefakt ist modular dokumentiert und kann in weiteren DSR-Zyklen geprüft und angepasst werden.
+\end{description}
+
+\subsection{Traceability-Matrix}
+
+\begin{landscape}
+\thispagestyle{fancy}
+\begin{longtblr}[
+  caption={Erweiterte Traceability-Prüfung der Designanforderungen},
+  label={tab:s3-traceability},
+  entry=none
+]{
+  width=\linewidth,
+  colspec={Q[c,wd=0.055\linewidth] Q[l,wd=0.19\linewidth] Q[l,wd=0.265\linewidth] Q[l,wd=0.19\linewidth] X[l]},
+  rowhead=1,
+  row{1}={bg=DeepNavy,fg=white,font=\sffamily\bfseries\footnotesize},
+  row{2-Z}={font=\footnotesize},
+  hlines={0.35pt,SoftRule},
+  vlines={0.25pt,SoftRule},
+  cells={valign=t},
+  colsep=3pt,rowsep=4pt
+}
+ID & Evaluationsfrage & Evidenz im Artefakt & Bewertung & Verbleibender empirischer Prüfbedarf \\
+\textbf{DA1} & Werden die für den Untersuchungsgegenstand relevanten technischen, datenbezogenen, organisationalen, rechtlichen und interorganisationalen Perspektiven abgebildet? & Sechs Dimensionen und 18 Kriterien; dokumentierte Definitionen und Abgrenzungen in S1 und S2. & \textbf{Konzeptionell adressiert.} Der betrachtete Literaturkorpus wird in einer mehrdimensionalen Struktur abgebildet. & Vollständigkeit und Trennschärfe aus Sicht realer Bildungsorganisationen; mögliche zusätzliche Dimensionen oder Kriterien. \\
+\textbf{DA2} & Werden abstrakte Konzepte in konkret bewertbare Merkmale überführt? & Für jedes der 18 Kriterien liegt ein Self-Assessment-Item vor; alle Items verwenden eine gemeinsame Skala von 0 bis 5; S1 dokumentiert Literaturanker und Operationalisierungslogik. & \textbf{Konzeptionell adressiert.} Die Kette Literaturkonzept – Code – Kriterium – Item ist dokumentiert. & Inhaltsvalidität, Verständlichkeit, Antwortprozesse, Reliabilität und Konstruktvalidität. \\
+\textbf{DA3} & Ist der Umfang so begrenzt, dass ein pragmatisches Self-Assessment grundsätzlich möglich erscheint? & 18 Items, einheitliche Antwortskala und dimensionsweise Ergebnisdarstellung. & \textbf{Teilweise adressiert.} Die Architektur ist kompakt; tatsächliche Anwendbarkeit ist aus der Struktur allein nicht ableitbar. & Bearbeitungsdauer, Verständlichkeit, erforderliche Evidenzen, geeignete Rollen, Respondent Fatigue und organisatorischer Aufwand. \\
+\textbf{DA4} & Erzeugt das Modell nach einheitlichen Regeln vergleichbare Dimensionsprofile? & Einheitliche 0–5-Skala; deskriptiver Dimensionsmittelwert $M_d=\frac{1}{3}\sum_{k=1}^{3}x_{dk}$; formaler Dimensionsreifegrad $L_d=\min_k(x_{dk})$; sechsdimensionales Profil $P=(L_1,\ldots,L_6)$. & \textbf{Formal umgesetzt.} Bei identischer Anwendung werden Bewertungen nach denselben Regeln verdichtet und dargestellt. & Vergleichbare Interpretation der Items und Skalenanker; Umgang mit unterschiedlichen Evidenzstandards und organisationalen Kontexten. \\
+\textbf{DA5} & Können konkrete Schwachstellen sichtbar gemacht und priorisiert werden? & Nicht-kompensatorische Minimumlogik verhindert die Verdeckung niedriger Kriterienwerte; Kriterien mit dem niedrigsten Wert begrenzen die nächste Reifegradstufe; Verzicht auf einen Gesamtindex. & \textbf{Konzeptionell adressiert.} Die Bewertungslogik identifiziert dimensionsbezogene Engpässe. & Praktische Nützlichkeit der Priorisierung; Eignung und Umsetzbarkeit daraus abgeleiteter Maßnahmen. \\
+\textbf{DA6} & Kann das Artefakt in weiteren Zyklen transparent geprüft und komponentenweise angepasst werden? & Trennung von Dimensionen, Kriterien, Items, Skala, Aggregationslogik und Ergebnisprofil; dokumentierte Traceability in S1–S3. & \textbf{Konzeptionell adressiert.} Änderungen können auf einzelne Komponenten und ihre Abhängigkeiten zurückgeführt werden. & Empirisch begründete Ergänzung, Streichung oder Gewichtung von Kriterien; Re-Evaluation nach jeder substanziellen Änderung. \\
+\end{longtblr}
+\end{landscape}
+
+\subsection{Gesamtergebnis und Aussagegrenze}
+
+Die Traceability-Prüfung zeigt eine konzeptionelle Übereinstimmung zwischen den formulierten Designanforderungen und den Bestandteilen des Artefakts. DA4 ist in der Modelllogik formal umgesetzt; DA1, DA2, DA5 und DA6 sind konzeptionell adressiert. DA3 kann aufgrund der kompakten Architektur nur teilweise als adressiert gelten, weil tatsächlicher Aufwand und Nutzbarkeit erst in realen Anwendungen beobachtet werden können.
+
+Die Evaluation stützt damit die \textbf{interne Kohärenz und Nachvollziehbarkeit} des ersten Artefaktentwurfs. Sie erlaubt keine Aussage darüber, ob die Dimensionen und Items in der Praxis vollständig, verständlich, reliabel oder valide sind. Diese Fragen erfordern Experteninterviews, strukturierte Fallstudien, Delphi-Verfahren oder Pilotanwendungen mit realen Bildungsorganisationen.
+
+\clearpage
+\nocite{*}
+\printbibliography[heading=bibintoc,title={Literaturverzeichnis}]
+
+\end{document}
