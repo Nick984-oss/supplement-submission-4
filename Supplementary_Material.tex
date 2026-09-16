@@ -1,11 +1,12 @@
 \documentclass[10pt,a4paper]{article}
 
-\usepackage[a4paper,top=18mm,bottom=18mm,left=18mm,right=18mm,headheight=14pt,footskip=10mm]{geometry}
+\usepackage[a4paper,top=15mm,bottom=15mm,left=15mm,right=15mm,headheight=14pt,footskip=9mm]{geometry}
 \usepackage[ngerman]{babel}
 \usepackage{fontspec}
 \setmainfont{TeXGyrePagellaX}
 \setsansfont{Source Sans Pro}
 \setmonofont{Latin Modern Mono}
+\usepackage{amsmath}
 \usepackage{microtype}
 \usepackage{csquotes}
 \usepackage{xcolor}
@@ -20,29 +21,36 @@
 \DefTblrTemplate{lastfoot}{default}{
   \UseTblrTemplate{note}{default}
   \UseTblrTemplate{remark}{default}
-  \vspace{0.4em}
+  \vspace{0.25em}
   \raggedright\small
   \UseTblrTemplate{caption-tag}{default}\UseTblrTemplate{caption-sep}{default}\UseTblrTemplate{caption-text}{default}\par
 }
 
 \usepackage{enumitem}
 \usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage{xurl}
 \usepackage{hyperref}
-\usepackage[backend=biber,style=authoryear,maxbibnames=99,sorting=nyt,doi=true,url=true,isbn=false,eprint=false]{biblatex}
+\usepackage[backend=biber,style=alphabetic,maxbibnames=99,sorting=nyt,doi=true,url=true,isbn=false,eprint=false]{biblatex}
 \addbibresource{references.bib}
+
+% Erlaube Zeilenumbrüche in URLs im Literaturverzeichnis
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
 
 \hypersetup{
   colorlinks=false,
   pdfborder={0 0 0},
   pdftitle={Supplementary Material: Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen},
   pdfauthor={Anonymous Authors},
-  pdfsubject={Codierleitfaden, Taxonomieentwicklung und konzeptionelle Ex-ante-Evaluation},
+  pdfsubject={Codierleitfaden, Taxonomieentwicklung, Ex-ante-Evaluation und Literaturrecherche},
   pdfkeywords={digitale Souveränität, Reifegradmodell, Bildungsökosysteme, Design Science Research, Online-Supplement}
 }
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.4em}
-\linespread{1.05}
+\setlength{\parskip}{0.28em}
+\linespread{1.01}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -59,129 +67,189 @@
 % -----------------------------------------------------------------------------
 \begin{center}
   {\Large\bfseries Supplementary Material: Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen\par}
-  \vspace{0.4em}
+  \vspace{0.2em}
   {\normalsize\itshape Anonymous supplementary material --- blinded for review\par}
-  \vspace{0.6em}
+  \vspace{0.3em}
   \hrule height 0.7pt
 \end{center}
-\vspace{0.3em}
+\vspace{0.1em}
 
-\vspace{0.6em}
+% =============================================================================
+% Anhang A: Codierleitfaden und Item-Traceability
+% =============================================================================
 \section*{Anhang A: Codierleitfaden und Item-Traceability}
 \label{sec:anhang-a}
 
-Tab.~\ref{tab:anhang-a} dokumentiert das final konsolidierte Codesystem der qualitativen Inhaltsanalyse \parencite{mayring2014} sowie die systematische Ableitung der 18 Self-Assessment-Items (einheitliche Antwortskala von 0 bis 5). Jedem Kriterium ist genau ein eindeutiger Code und genau ein Item zugeordnet. Die Literaturanker belegen die Verankerung im wissenschaftlichen Schrifttum, wobei methodisch zwischen direkten Bezügen und theoriegeleiteten, artefaktbezogenen Operationalisierungen unterschieden wird.
+Dieser Anhang dokumentiert die theorie- und literaturbasierte Ableitung der 18 Kriterien und zugehörigen Self-Assessment-Items zur Bewertung digitaler Souveränität in föderierten Bildungsökosystemen. Die Herleitung basiert auf einem nach Mayring \cite{Ma14} strukturierten Codierleitfaden, der den wissenschaftlichen und praxisorientierten Quellenkorpus operationalisiert. Die sechs Dimensionen sowie die zugeordneten 18 Kriterien und Self-Assessment-Items entsprechen wortgleich der Nomenklatur des Hauptpapers (Abschnitt~3 und Abbildung~1). Jedes Kriterium wird über genau ein als Frage formuliertes Self-Assessment-Item („Inwieweit~\dots?“) erfasst und anhand der sechsstufigen, nicht-kompensatorischen Reifegradskala von Stufe~0 bis Stufe~5 bewertet (siehe Tabelle~2 im Hauptpaper, S.~10). Für jeden der 18 eindeutigen Codes ist explizit der methodische Ableitungstyp ausgewiesen: \textbf{[Typ:~D]} kennzeichnet eine Ableitung mit direktem Literaturbezug; \textbf{[Typ:~T]} bezeichnet eine theoriegeleitete bzw. artefaktbezogene Operationalisierung für die Besonderheiten föderierter Bildungsverbünde.
 
 \begin{longtblr}[
-  caption={Konsolidierter Codierleitfaden und vollständige Item-Traceability (C01--C18); Quelle: Eigene Darstellung},
+  caption={18 Codes zur Operationalisierung der sechs Dimensionen des Reifegradmodells; Quelle: Eigene Darstellung},
   label={tab:anhang-a},
   entry=none
 ]{
   width=\textwidth,
   colspec={
-    Q[l,wd=0.095\textwidth]
-    Q[l,wd=0.185\textwidth]
-    Q[l,wd=0.255\textwidth]
-    Q[l,wd=0.215\textwidth]
+    Q[l,wd=0.10\textwidth]
+    Q[l,wd=0.20\textwidth]
+    Q[l,wd=0.28\textwidth]
+    Q[l,wd=0.20\textwidth]
     X[l]
   },
   rowhead=1,
   row{1}={font=\small\bfseries},
-  row{2-Z}={font=\fontsize{8.5pt}{10.8pt}\selectfont},
+  row{2-Z}={font=\fontsize{7.8pt}{9.8pt}\selectfont},
   hlines={0.3pt},
   cells={valign=t},
-  colsep=3.5pt,
-  rowsep=3.5pt
+  colsep=2.2pt,
+  rowsep=2.0pt
 }
 \toprule
-Code & Dimension \& Kriterium & Codierregel: Definition \& Abgrenzung & Literaturanker \& Quelle & Self-Assessment-Item \& Ableitung \\
+Code \& Typ & Dimension \& Kriterium & Codierregel (Definition, Ein- \& Abgrenzung) & Literaturanker \& Begründung & Self-Assessment-Item \& Ableitung \\
 \midrule
-C-GOV-01 & \textbf{Governance und Entscheidungsautonomie}\newline Digitale Strategie & \textbf{Def.:} Institutionell verankerte strategische Orientierung für die selbstbestimmte Gestaltung und Steuerung digitaler Infrastrukturen, Dienste und Daten.\newline \textbf{Ein.:} Explizite Ziele, Leitlinien, Roadmaps.\newline \textbf{Abgr.:} Operative Einzelmaßnahmen ohne strategischen Rahmen. & BMBF und SPRIND beschreiben bundesweite Bildungsplattform als übergeordnetes strategisches Ziel.\newline \parencite{bmbf2024} & \textbf{Unsere Institution verfügt über eine dokumentierte Strategie zur souveränen Gestaltung digitaler Infrastrukturen.}\newline \textit{Ableitung:} Dokumentierte Strategie als beobachtbare strategische Verankerung. \\
+C-GOV-01\newline\textbf{[Typ:~D]} & \textbf{Governance und Entscheidungsautonomie}\newline Digitale Strategie & \textbf{Def.:} Institutionell verankerte strategische Orientierung für die selbstbestimmte Gestaltung und Steuerung digitaler Infrastrukturen, Dienste und Daten.\newline \textbf{Ein.:} Explizite Digitalisierungsziele, Leitlinien, Roadmaps und Governance-Mandate.\newline \textbf{Abgr.:} Grenzt sich von operativen Einzelmaßnahmen ohne übergeordneten strategischen Rahmen ab. & BMBF und SPRIND beschreiben die bundesweite Bildungsplattform als übergeordnetes strategisches Ziel.\newline \cite{BM24b} & \textbf{Inwieweit verfügt unsere Institution über eine dokumentierte Strategie zur souveränen Gestaltung digitaler Infrastrukturen?}\newline \textit{Ableitung:} Eine dokumentierte Strategie operationalisiert institutionelle Selbstbestimmung. \\
 
-C-GOV-02 & \textbf{Governance und Entscheidungsautonomie}\newline Verantwortlichkeiten & \textbf{Def.:} Formale Zuordnung von Rollen, Zuständigkeiten und Rechenschaftspflichten für digitale Souveränität und gemeinsame Dienste.\newline \textbf{Ein.:} Benannte Rollen, Verantwortungsbereiche, Pflichten.\newline \textbf{Abgr.:} Informelle Mitarbeit ohne festgelegte Verantwortung. & IDSA definiert formale Rollen und ordnet diese rechtlichen, organisatorischen und technischen Pflichten im Datenraum zu.\newline \parencite{idsaRulebook} & \textbf{Rollen und Verantwortlichkeiten für digitale Souveränität sind eindeutig definiert.}\newline \textit{Ableitung:} Eindeutige Rollen als Indikator institutionalisierter Verantwortungsstrukturen. \\
+C-GOV-02\newline\textbf{[Typ:~D]} & \textbf{Governance und Entscheidungsautonomie}\newline Verantwortlichkeiten & \textbf{Def.:} Formale Zuordnung von Rollen, institutionellen Zuständigkeiten und Rechenschaftspflichten für digitale Souveränität (statische Rollendimension: „Wer?“).\newline \textbf{Ein.:} Benannte Rollen, Aufgabenprofile, Pflichtenkataloge, Weisungsbefugnisse.\newline \textbf{Abgr.:} Grenzt sich von dynamischen Beschlussverfahren ab (C-GOV-03) sowie von externer Verbundtransparenz (C-SEC-03). & IDSA und Gaia-X definieren formale Akteursrollen und ordnen diesen rechtliche und organisatorische Pflichten zu.\newline \cite{Ga23} & \textbf{Inwieweit sind Rollen und Verantwortlichkeiten für digitale Souveränität eindeutig definiert?}\newline \textit{Ableitung:} Eindeutige Rollenfixierung bildet das Fundament verbindlicher Handlungsfähigkeit. \\
 
-C-GOV-03 & \textbf{Governance und Entscheidungsautonomie}\newline Entscheidungsprozesse & \textbf{Def.:} Nachvollziehbare Verfahren und Gremien für Beschlüsse über digitale Dienste, Dateninfrastrukturen und Kooperationsregeln.\newline \textbf{Ein.:} Institutionalisierte Gremien, Beschlusswege, Beteiligung.\newline \textbf{Abgr.:} Rein technische Automatisierung ohne Governance. & Plattform-Governance durch institutionalisierte Stakeholder-Allianz (S.~561).\newline \parencite{otto2019} & \textbf{Entscheidungen über zentrale digitale Dienste erfolgen transparent und nachvollziehbar.}\newline \textit{Ableitung:} Transparenz operationalisiert interorganisationale Beschlussprozesse. \\
+C-GOV-03\newline\textbf{[Typ:~D]} & \textbf{Governance und Entscheidungsautonomie}\newline Entscheidungsprozesse & \textbf{Def.:} Nachvollziehbare und legitimierte Verfahren, Gremien und Abstimmungswege zur Beschlussfassung über digitale Dienste und Verbundregeln (dynamische Prozessdimension: „Wie?“).\newline \textbf{Ein.:} Feste Gremien, dokumentierte Beschlusswege, Stakeholder-Beteiligung.\newline \textbf{Abgr.:} Grenzt sich von statischen Rollenzuweisungen ab (C-GOV-02) sowie von operativer Prozessintegration (C-INT-03). & Plattform-Governance durch institutionalisierte Stakeholder-Allianz und geregelte Abstimmung.\newline \cite[S.~561]{OJ19} & \textbf{Inwieweit erfolgen Entscheidungen über zentrale digitale Dienste transparent und nachvollziehbar?}\newline \textit{Ableitung:} Transparente Verfahren operationalisieren interorganisationale Governance. \\
 
-C-DAT-01 & \textbf{Daten- und Informationssouveränität}\newline Dateninventar & \textbf{Def.:} Systematische Übersicht über wesentliche Datenbestände, Datenverantwortlichkeiten und organisationsübergreifende Datenflüsse.\newline \textbf{Ein.:} Datenkataloge, Wörterbücher, Metadatenverzeichnisse.\newline \textbf{Abgr.:} Zugriffsregeln ohne Bestandsübersicht. & OECD betont Dateninventare und Datenwörterbücher für geregelten Datenzugang (S.~227; \parencite{oecd2023}); die explizite Ausdehnung auf organisationsübergreifende Datenflüsse ist eine artefaktbezogene Operationalisierung für föderierte Bildungsökosysteme. & \textbf{Unsere Institution verfügt über eine Übersicht zentraler Datenbestände und Datenflüsse.}\newline \textit{Ableitung:} Bestandsübersicht als Voraussetzung für Kontrolle und Zuweisung. \\
+C-DAT-01\newline\textbf{[Typ:~T]} & \textbf{Daten- und Informationssouveränität}\newline Dateninventar & \textbf{Def.:} Systematische Erfassung und strukturierte Übersicht wesentlicher Datenbestände, Datenverantwortlichkeiten und organisationsübergreifender Datenflüsse.\newline \textbf{Ein.:} Datenkataloge, Metadatenverzeichnisse, Datenflussdiagramme.\newline \textbf{Abgr.:} Grenzt sich von konkreten Zugriffsberechtigungen ab (C-DAT-02). & OECD fordert Dateninventare für geregelten Zugang \cite[S.~227]{OE23}; Ausdehnung auf föderierte Datenflüsse als theoriegeleitete Modellspezifikation [Typ:~T]. & \textbf{Inwieweit verfügt unsere Institution über eine Übersicht zentraler Datenbestände und Datenflüsse?}\newline \textit{Ableitung:} Dateninventare bilden die notwendige Voraussetzung informierter Kontrolle. \\
 
-C-DAT-02 & \textbf{Daten- und Informationssouveränität}\newline Zugriffskontrolle & \textbf{Def.:} Organisatorische und technische Regeln über Berechtigungen und Nachvollziehbarkeit des Zugriffs auf sensible Daten.\newline \textbf{Ein.:} Autorisierung, feingranulare Rechte, Zugriffsprotokollierung.\newline \textbf{Abgr.:} Nachgelagerte Nutzungszwecke (siehe C-DAT-03). & Abgestufte Zugriffsrechte und sichtbare Protokollierung (S.~839--840; \parencite{opriel2025}); grenzt formalen Zugriffsschutz (Access Control) von nachgelagerter Nutzungssteuerung (Usage Control) ab. & \textbf{Zugriffe auf sensible Daten sind geregelt, dokumentiert und überprüfbar.}\newline \textit{Ableitung:} Verbindet formale Zugriffsregeln mit Nachweisfähigkeit. \\
+C-DAT-02\newline\textbf{[Typ:~D]} & \textbf{Daten- und Informationssouveränität}\newline Zugriffskontrolle & \textbf{Def.:} Organisatorische und technische Mechanismen zur Autorisierung, Authentifizierung und Protokollierung des Zugriffs auf sensible Daten (Access Control).\newline \textbf{Ein.:} Rollenbasierte Rechtevergabe (RBAC), Zugriffsprotokollierung, Berechtigungsprüfungen.\newline \textbf{Abgr.:} Grenzt formalen Zugriffsschutz von nachgelagerten Nutzungsregeln ab (C-DAT-03) sowie von Governance-Transparenz (C-SEC-03). & Abgestufte Zugriffsrechte und sichtbare Protokollierung von Datenanfragen als Kernanforderung.\newline \cite[S.~839--840]{Op25} & \textbf{Inwieweit sind Zugriffe auf sensible Daten geregelt, dokumentiert und überprüfbar?}\newline \textit{Ableitung:} Verbindet formalen Zugriffsschutz mit technischer Revisionsfähigkeit. \\
 
-C-DAT-03 & \textbf{Daten- und Informationssouveränität}\newline Datennutzung & \textbf{Def.:} Festgelegte Bedingungen für Verarbeitung, Weitergabe, Zweckbindung, Aufbewahrung und Löschung von Daten.\newline \textbf{Ein.:} Usage-Control-Regeln, Zweckbindung, Löschfristen.\newline \textbf{Abgr.:} Reine Zugriffsberechtigung oder Bestandsdokumentation. & Vereinbarte Nutzungsbedingungen und deren Durchsetzung als Kernelement (Tab.~2).\newline \parencite{scherenberg2024} & \textbf{Regeln zur Nutzung, Weitergabe und Verarbeitung von Daten sind definiert.}\newline \textit{Ableitung:} Übersetzt Kontrolle über Datenlebenszyklus in bewertbare Praxis. \\
+C-DAT-03\newline\textbf{[Typ:~D]} & \textbf{Daten- und Informationssouveränität}\newline Datennutzung & \textbf{Def.:} Verbindliche Richtlinien und Kontrollmechanismen für Verarbeitung, Weitergabe, Zweckbindung und Löschung von Daten (Usage Control).\newline \textbf{Ein.:} Data-Usage-Policies, Zweckbindungsregeln, Löschfristen.\newline \textbf{Abgr.:} Grenzt nachgelagerte Verwendungsregeln von der reinen Zugriffserteilung ab (C-DAT-02). & Vereinbarte Nutzungsbedingungen und deren technische Durchsetzung als Souveränitätskernelement.\newline \cite[Tab.~2]{SHO24} & \textbf{Inwieweit sind Regeln zur Nutzung, Weitergabe und Verarbeitung von Daten definiert?}\newline \textit{Ableitung:} Überführt die Kontrolle über den Datenlebenszyklus in überprüfbare Regeln. \\
 
-C-TEC-01 & \textbf{Technologische Abhängigkeiten}\newline Anbieterabhängigkeit & \textbf{Def.:} Transparenz über kritische Abhängigkeiten von Plattformen, Cloud-Diensten, proprietären Systemen und Dienstleistern.\newline \textbf{Ein.:} Vendor Lock-in, Abhängigkeiten von Dienstleistern.\newline \textbf{Abgr.:} Konkrete Migrationsmaßnahmen (siehe C-TEC-02). & Thematisiert dezentrale Lösungen zur Minderung von Provider-Machtpositionen (S.~839, 846f.; \parencite{opriel2025}); Übertragung auf proprietäre Vendor-Lock-in-Risiken als theoriegeleiteter Analogieschluss. & \textbf{Kritische Abhängigkeiten von externen Plattformen oder Dienstleistern sind bekannt.}\newline \textit{Ableitung:} Systematische Transparenz als Vorbedingung jeder Risikosteuerung. \\
+C-TEC-01\newline\textbf{[Typ:~T]} & \textbf{Technologische Abhängigkeiten}\newline Anbieterabhängigkeit & \textbf{Def.:} Systematische Identifikation und Bewertung kritischer Abhängigkeiten von externen Plattformen, proprietären Systemen und Cloud-Dienstleistern.\newline \textbf{Ein.:} Vendor-Lock-in-Analysen, Erfassung proprietärer Abhängigkeiten.\newline \textbf{Abgr.:} Grenzt die Analyse und Kenntnis von Abhängigkeiten von konkreten Ausstiegsoptionen ab (C-TEC-02). & Dezentrale Architekturen zur Minderung von Provider-Machtpositionen \cite[S.~839, 846f.]{Op25}; Übertragung auf Lock-in-Risiken im Bildungsbereich als Analogieschluss [Typ:~T]. & \textbf{Inwieweit sind kritische Abhängigkeiten von externen Plattformen oder Dienstleistern bekannt?}\newline \textit{Ableitung:} Transparenz über Abhängigkeiten als zwingende Vorbedingung der Risikosteuerung. \\
 
-C-TEC-02 & \textbf{Technologische Abhängigkeiten}\newline Exit-Fähigkeit & \textbf{Def.:} Fähigkeit, digitale Dienste, Daten und Prozesse innerhalb vertretbarer Fristen und Kosten zu alternativen Lösungen zu migrieren.\newline \textbf{Ein.:} Migrationspfade, Portabilität, Substitution, Rückfalloptionen.\newline \textbf{Abgr.:} Kenntnis der Abhängigkeit ohne Ausstiegsoption. & Freiheit zur Datenmigration als Kernanforderung von Datensouveränität (Tab.~1).\newline \parencite{scherenberg2024} & \textbf{Für zentrale digitale Dienste bestehen Exit-Strategien oder Alternativen.}\newline \textit{Ableitung:} Bewertet konkrete Handlungsfähigkeit zur Beendigung von Abhängigkeiten. \\
+C-TEC-02\newline\textbf{[Typ:~D]} & \textbf{Technologische Abhängigkeiten}\newline Exit-Fähigkeit & \textbf{Def.:} Reale Handlungsfähigkeit, digitale Dienste, Datenbestände und Prozesse innerhalb vertretbarer Fristen und Kosten zu alternativen Anbietern zu migrieren.\newline \textbf{Ein.:} Migrationskonzepte, Datenportabilität, Open-Source-Rückfalloptionen.\newline \textbf{Abgr.:} Grenzt konkrete Handlungsfähigkeit zur Ablösung von bloßer Risikoanalyse ab (C-TEC-01). & Freiheit zur Migration und Systemablösung als Kernanforderung von Datensouveränität.\newline \cite[Tab.~1]{SHO24} & \textbf{Inwieweit bestehen für zentrale digitale Dienste Exit-Strategien oder Alternativen?}\newline \textit{Ableitung:} Bewertet die tatsächliche Handlungsfähigkeit zur Beendigung asymmetrischer Bindungen. \\
 
-C-TEC-03 & \textbf{Technologische Abhängigkeiten}\newline Vertragsgestaltung & \textbf{Def.:} Vertragliche Absicherung von Datenkontrolle, Portabilität, Rückgabe, Auditierbarkeit und Beendigung bei externen Diensten.\newline \textbf{Ein.:} Vertragsklauseln zu Rückgabe, Portabilität, Löschpflichten.\newline \textbf{Abgr.:} Allgemeine Datenschutzerklärungen ohne Vertragsfokus. & Vereinbarungen zur Beschränkung kommerzieller Datennutzung und Datenrückgewinnung (S.~224).\newline \parencite{oecd2023} & \textbf{Verträge mit Dienstleistern berücksichtigen Anforderungen an Datenkontrolle und Portabilität.}\newline \textit{Ableitung:} Fokussiert Datenkontrolle und Portabilität als vertragliche Steuerungsziele. \\
+C-TEC-03\newline\textbf{[Typ:~D]} & \textbf{Technologische Abhängigkeiten}\newline Vertragsgestaltung & \textbf{Def.:} Vertragliche Absicherung von Datenkontrolle, Portabilität, Auditrechten, Kündigungsfristen und Rückgabepflichten gegenüber IT-Dienstleistern.\newline \textbf{Ein.:} Vertragsklauseln zu Dateneigentum, Portabilitätsfristen, Löschungsnachweisen.\newline \textbf{Abgr.:} Grenzt vertragliche Steuerungshebel von allgemeinen Governance-Zielen ab (C-GOV-01). & Vereinbarungen zur Beschränkung kommerzieller Datennutzung und Absicherung von Datenrückgewinnung.\newline \cite[S.~224]{OE23} & \textbf{Inwieweit berücksichtigen Verträge mit Dienstleistern Anforderungen an Datenkontrolle und Portabilität?}\newline \textit{Ableitung:} Fokussiert justiziable Vertragsklauseln als konkretes Steuerungsmedium. \\
 
-C-INT-01 & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Offene Standards & \textbf{Def.:} Nutzung dokumentierter, herstellerneutraler und offener Standards für Datenformate, Semantik und Diensteintegration.\newline \textbf{Ein.:} Offene Formate, standardisierte Schemata, Schnittstellenoffenheit.\newline \textbf{Abgr.:} Technische APIs ohne offenen Standardbezug. & Bildungsbericht 2024 betont offene Standards und herstellerneutrale Interoperabilität für digitale Bildungsinfrastrukturen.\newline \parencite{bundestag2024} & \textbf{Für den Austausch von Daten und Diensten werden offene Standards genutzt.}\newline \textit{Ableitung:} Bewertet institutionelle Praxis zur Vermeidung proprietärer Silos. \\
+C-INT-01\newline\textbf{[Typ:~D]} & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Offene Standards & \textbf{Def.:} Verbindliche Nutzung dokumentierter, offener und herstellerneutraler Standards für Datenformate, Schnittstellen und Metadatenschemata.\newline \textbf{Ein.:} Offene Protokolle, semantische Bildungsstandards, lizenzfreie Datenformate.\newline \textbf{Abgr.:} Grenzt herstellerneutrale Standards von proprietären APIs ab (C-INT-02). & Bildungsbericht der Bundesregierung fordert herstellerneutrale Interoperabilität und offene Standards für Bildungsinfrastrukturen.\newline \cite[S.~12]{BT24} & \textbf{Inwieweit werden für den Austausch von Daten und Diensten offene Standards genutzt?}\newline \textit{Ableitung:} Bewertet institutionelle Praxis zur Vermeidung technischer Silobildung. \\
 
-C-INT-02 & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Schnittstellen & \textbf{Def.:} Dokumentierte technische Schnittstellen für den kontrollierten Austausch von Daten und Funktionen zwischen Systemen.\newline \textbf{Ein.:} APIs, Bridges, Konnektoren, definierte Systemgrenzen.\newline \textbf{Abgr.:} Standardisierung ohne real verfügbare Schnittstelle. & Standardisierte APIs und Bridges zur direkten Kopplung heterogener Systeme (S.~840).\newline \parencite{opriel2025} & \textbf{Zentrale Systeme verfügen über dokumentierte Schnittstellen.}\newline \textit{Ableitung:} Direkt prüfbarer technischer Anschlussfähigkeitsindikator. \\
+C-INT-02\newline\textbf{[Typ:~D]} & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Schnittstellen & \textbf{Def.:} Bereitstellung und Pflege dokumentierter, standardisierter technischer Programmierschnittstellen (APIs) zum kontrollierten Systemdatenaustausch.\newline \textbf{Ein.:} REST/GraphQL-APIs, Konnektoren, definierte Endpunkte.\newline \textbf{Abgr.:} Grenzt technische Anbindungspunkte von übergeordneten Kollaborationsprozessen ab (C-INT-03). & Standardisierte APIs und Schnittstellen-Konnektoren zur Systemkopplung heterogener Partner.\newline \cite[S.~840]{Op25} & \textbf{Inwieweit verfügen zentrale Systeme über dokumentierte Schnittstellen?}\newline \textit{Ableitung:} Direkt prüfbarer Indikator technischer Integrationsfähigkeit. \\
 
-C-INT-03 & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Föderierte Zusammenarbeit & \textbf{Def.:} Technisch und organisatorisch geregelte Kooperation rechtlich eigenständiger Institutionen über gemeinsame Prozesse.\newline \textbf{Ein.:} Interorganisationale Prozesse, gemeinsame Governance im Verbund.\newline \textbf{Abgr.:} Rein institutionsinterne Integrationsprojekte. & Institutionsübergreifender Datenaustausch via Allianzen (S.~561; \parencite{otto2019}); Vernetzungsinfrastruktur und Föderation \parencite{bmbf2024}. & \textbf{Institutionenübergreifende digitale Prozesse sind technisch und organisatorisch geregelt.}\newline \textit{Ableitung:} Erfasst das Zusammenspiel von technischer und organisatorischer Föderation. \\
+C-INT-03\newline\textbf{[Typ:~T]} & \textbf{Interoperabilität und Föderationsfähigkeit}\newline Föderierte Zusammenarbeit & \textbf{Def.:} Organisatorische und technische Vereinbarung und Umsetzung kollaborativer Prozesse über Institutionsgrenzen hinweg (Federated Workflows).\newline \textbf{Ein.:} Verbundvereinbarungen, föderierte Identitätsdienste (SSO), abgestimmte Workflows.\newline \textbf{Abgr.:} Grenzt operative Prozessintegration von strategischen Verbundbeschlüssen ab (C-GOV-03). & Föderationsarchitektur für vernetzte Bildungsökosysteme \cite{BM24a}; theoriegeleitete Übertragung auf interorganisationale Verbundprozesse [Typ:~T]. & \textbf{Inwieweit sind institutionenübergreifende digitale Prozesse technisch und organisatorisch geregelt?}\newline \textit{Ableitung:} Operationalisiert die operative Kooperationsfähigkeit zwischen autonomen Trägern. \\
 
-C-KOM-01 & \textbf{Kompetenz und organisationale Fähigkeiten}\newline Fachkompetenz & \textbf{Def.:} Verfügbarkeit von Wissen zu Datenmanagement, Plattformen, digitaler Governance, IT-Sicherheit und Föderation.\newline \textbf{Ein.:} Qualifikationen, Kompetenzen, methodisches Fachwissen.\newline \textbf{Abgr.:} Trainingsangebote ohne Nachweis vorhandenen Wissens. & Digitale Kompetenzen als grundlegende organisationale Fähigkeiten (S.~185).\newline \parencite{oecd2023} & \textbf{Relevante Mitarbeitende verfügen über Kompetenzen zu Daten, Plattformen und digitaler Governance.}\newline \textit{Ableitung:} Prüft vorhandenen Kompetenzbestand unabhängig vom Qualifizierungsweg. \\
+C-COM-01\newline\textbf{[Typ:~D]} & \textbf{Kompetenzen und organisationale Fähigkeiten}\newline Fachkompetenz & \textbf{Def.:} Vorhandensein personeller Fachkompetenzen in Bezug auf Datenmanagement, digitale Plattformen, Souveränitätsrisiken und IT-Governance.\newline \textbf{Ein.:} Fachwissen von IT- und Governance-Personal, Qualifikationsprofile.\newline \textbf{Abgr.:} Grenzt vorhandenes Wissen von organisierten Schulungsangeboten ab (C-COM-02). & Organisationale Kompetenzen als tragende Reifegrad-Grundlage \cite{PR11}; kontinuierliche Befähigungsträger \cite{St23}. & \textbf{Inwieweit verfügen relevante Mitarbeitende über Kompetenzen zu Daten, Plattformen und digitaler Governance?}\newline \textit{Ableitung:} Fachkompetenz bildet die personelle Ressource für souveräne Steuerung. \\
 
-C-KOM-02 & \textbf{Kompetenz und organisationale Fähigkeiten}\newline Schulung & \textbf{Def.:} Institutionalisierte Angebote zur Weiterbildung und Sensibilisierung für Anforderungen digitaler Souveränität.\newline \textbf{Ein.:} Trainingsprogramme, Workshops, organisierte Weiterbildung.\newline \textbf{Abgr.:} Rein informeller oder individueller Wissenserwerb. & Beratungs- und Trainingsangebote als Unterstützung in Datenökosystemen (S.~20).\newline \parencite{abbas2024} & \textbf{Es existieren Schulungs- oder Sensibilisierungsangebote zu digitaler Souveränität.}\newline \textit{Ableitung:} Institutionalisierte Angebote belegen strukturierte Kompetenzentwicklung. \\
+C-COM-02\newline\textbf{[Typ:~T]} & \textbf{Kompetenzen und organisationale Fähigkeiten}\newline Schulung & \textbf{Def.:} Etablierung systematischer, zielgruppenspezifischer Schulungs- und Weiterbildungsangebote zu digitaler Souveränität und Datensicherheit.\newline \textbf{Ein.:} Schulungsprogramme, Sensibilisierungskampagnen, modulare Weiterbildung.\newline \textbf{Abgr.:} Grenzt formalisierte Angebote von individuellem Vorwissen ab (C-COM-01) und von retrospektiver Projektreflexion (C-COM-03). & Theoriegeleitete Operationalisierung organisationaler Befähigungsprogramme im Reifegradkontext.\newline \cite{PR11,St23} & \textbf{Inwieweit existieren Schulungs- oder Sensibilisierungsangebote zu digitaler Souveränität?}\newline \textit{Ableitung:} Institutionalisierte Angebote sichern den kontinuierlichen Kompetenzaufbau. \\
 
-C-KOM-03 & \textbf{Kompetenz und organisationale Fähigkeiten}\newline Lernfähigkeit & \textbf{Def.:} Fähigkeit, Projekterfahrungen und Evaluationen systematisch zu reflektieren und in institutionelle Anpassungen zu überführen.\newline \textbf{Ein.:} Feedbackschleifen, Reflexion, kontinuierliche Verbesserung.\newline \textbf{Abgr.:} Einmalige Maßnahmen ohne systematische Rückkopplung. & Indirekter methodischer Literaturanker für wiederkehrende Evaluation, Reflexion und Anpassung (S.~704; \parencite{stoiber2023}); die Übertragung auf die systematische Nutzung von Projekterfahrungen stellt eine artefaktbezogene Operationalisierung dar. & \textbf{Erfahrungen aus digitalen Projekten werden systematisch ausgewertet und genutzt.}\newline \textit{Ableitung:} Erfasst eine beobachtbare organisationale Lern- und Verbesserungsschleife. \\
+C-COM-03\newline\textbf{[Typ:~T]} & \textbf{Kompetenzen und organisationale Fähigkeiten}\newline Lernfähigkeit & \textbf{Def.:} Systematische Erfassung, Auswertung und organisationale Verankerung von Erfahrungswerten (Lessons Learned) aus Digitalisierungs- und Verbundprojekten.\newline \textbf{Ein.:} Post-Mortem-Analysen, Best-Practice-Dokumentation, kontinuierliche Feedbackschleifen.\newline \textbf{Abgr.:} Grenzt retrospektive Verbundreflexion von prospektiver Personalschulung ab (C-COM-02). & Theoriegeleitete Übertragung organisationaler Reifeprozesse \cite{dB05,St23} auf föderierte Souveränitätsdimensionen. & \textbf{Inwieweit werden Erfahrungen aus digitalen Projekten systematisch ausgewertet und genutzt?}\newline \textit{Ableitung:} Systematische Lernroutinen sichern die evolutionäre Weiterentwicklung des Verbunds. \\
 
-C-SEC-01 & \textbf{Compliance, Sicherheit und Vertrauen}\newline Datenschutz & \textbf{Def.:} Systematische Verankerung datenschutzrechtlicher Anforderungen über den gesamten Lebenszyklus digitaler Dienste.\newline \textbf{Ein.:} Privacy, regulatorische Vorgaben, Datenschutzverantwortung.\newline \textbf{Abgr.:} Allgemeine IT-Sicherheit ohne Datenschutzbezug. & Data Governance verknüpft Regeln und Ressourcen zur Gewährleistung von Privacy (S.~210).\newline \parencite{oecd2023} & \textbf{Datenschutzanforderungen werden bei digitalen Diensten systematisch berücksichtigt.}\newline \textit{Ableitung:} Datenschutz als wiederkehrender Bestandteil der Dienstgestaltung. \\
+C-SEC-01\newline\textbf{[Typ:~D]} & \textbf{Compliance, Sicherheit und Vertrauen}\newline Datenschutz & \textbf{Def.:} Konsequente Berücksichtigung und Einhaltung gesetzlicher Datenschutzanforderungen (DSGVO, Bildungsdatenschutz) bei digitalen Diensten.\newline \textbf{Ein.:} Datenschutz-Folgenabschätzungen, AV-Verträge, Privacy-by-Design.\newline \textbf{Abgr.:} Grenzt personenbezogenen Datenschutz von allgemeiner technischer Sicherheit ab (C-SEC-02). & Datenschutzkonformität als Kernkriterium öffentlicher Souveränitätsbewertung.\newline \cite{Ze26} & \textbf{Inwieweit werden Datenschutzanforderungen bei digitalen Diensten systematisch berücksichtigt?}\newline \textit{Ableitung:} Datenschutzintegration bildet die rechtliche Basis vertrauensvoller Datennutzung. \\
 
-C-SEC-02 & \textbf{Compliance, Sicherheit und Vertrauen}\newline Informationssicherheit & \textbf{Def.:} Systematische Identifikation, Bewertung und Behandlung von Sicherheitsrisiken digitaler Infrastrukturen.\newline \textbf{Ein.:} Sicherheitsstandards, Verschlüsselung, Authentifizierung, Audits.\newline \textbf{Abgr.:} Datenschutzfragen ohne technischen Sicherheitsbezug. & Informationssicherheit als Kernbaustein von Datensouveränität (S.~840; \parencite{opriel2025}); die regelmäßige Risikobewertung ist eine organisationsbezogene Operationalisierung aus dem allgemeinen Sicherheitsdiskurs. & \textbf{Risiken digitaler Infrastrukturen werden regelmäßig bewertet.}\newline \textit{Ableitung:} Wiederkehrende Risikobewertung als technologieunabhängiger Indikator. \\
+C-SEC-02\newline\textbf{[Typ:~D]} & \textbf{Compliance, Sicherheit und Vertrauen}\newline Informationssicherheit & \textbf{Def.:} Institutionalisierte Prozesse zur regelmäßigen Identifikation, Risikoanalyse und Abwehr von Bedrohungen für digitale Infrastrukturen.\newline \textbf{Ein.:} Sicherheitskonzepte (BSI IT-Grundschutz, ISO 27001), Audits, Incident Response.\newline \textbf{Abgr.:} Grenzt technische IT-Sicherheit von rechtlichem Datenschutz ab (C-SEC-01) und von Governance-Transparenz (C-SEC-03). & Analyse digitaler Souveränitäts- und Cyber-Sicherheitsrisiken im Rahmen europäischer Richtlinien (NIS-2).\newline \cite{KDW25} & \textbf{Inwieweit werden Risiken digitaler Infrastrukturen regelmäßig bewertet?}\newline \textit{Ableitung:} Regelmäßige Risikoaudits operationalisieren technische Resilienz. \\
 
-C-SEC-03 & \textbf{Compliance, Sicherheit und Vertrauen}\newline Transparenz & \textbf{Def.:} Nachvollziehbarkeit von Regeln, Verantwortlichkeiten, Datenzugriffen und Entscheidungen für beteiligte Akteure.\newline \textbf{Ein.:} Auditierbare Regeln, Protokollierung, transparente Kommunikation.\newline \textbf{Abgr.:} Reine Code-Offenlegung ohne Bezug zur Zusammenarbeit. & Transparenz primär durch nutzerbezogene Protokollierung (S.~839; \parencite{opriel2025}); im Modell auf die Transparenz interorganisationaler Governance und Regelwerke erweitert. & \textbf{Regeln und Verantwortlichkeiten digitaler Zusammenarbeit sind für Beteiligte nachvollziehbar.}\newline \textit{Ableitung:} Überträgt Nachvollziehbarkeit auf interorganisationale Governance. \\
+C-SEC-03\newline\textbf{[Typ:~T]} & \textbf{Compliance, Sicherheit und Vertrauen}\newline Transparenz & \textbf{Def.:} Verbundweite Nachvollziehbarkeit, Auditierbarkeit und Offenlegung von Betriebsregeln, Verantwortlichkeiten und Datenzugriffen für Verbundpartner.\newline \textbf{Ein.:} Auditierbare Protokolle, offene Richtlinien, gegenseitige Einsehbarkeit.\newline \textbf{Abgr.:} Grenzt sich von statischer Rollenzuweisung ab (C-GOV-02: intern) und von punktueller Zugriffskontrolle (C-DAT-02). Transparenz meint hier interorganisationale Sichtbarkeit. & Transparente Nachweisfähigkeit als Vertrauensgrundlage \cite[S.~839]{Op25}. Theoriegeleitete Begründung [Typ:~T]: Da interorganisationales Vertrauen ein latentes Konstrukt ist, dient Transparenz als beobachtbarer Proxy-Indikator für Vertrauenswürdigkeit. & \textbf{Inwieweit sind Regeln und Verantwortlichkeiten digitaler Zusammenarbeit für Beteiligte nachvollziehbar?}\newline \textit{Ableitung:} Institutionalisierte Transparenz operationalisiert die Vertrauensbasis föderierter Kooperation. \\
 \bottomrule
 \end{longtblr}
 
-\vspace{0.8em}
-\section*{Anhang B: Protokoll der Taxonomieentwicklung}
+\vspace{0.25em}
+\textbf{Abgrenzungskonsistenz:} Die tabellarischen Abgrenzungen stellen sicher, dass die Codes innerhalb und zwischen den Dimensionen trennscharf sind. Insbesondere wird zwischen statischer Zuweisung (C-GOV-02: Wer?), dynamischer Entscheidungsfindung (C-GOV-03: Wie?) und interorganisationaler Einsehbarkeit als Vertrauens-Proxy (C-SEC-03) unterschieden. Ebenso trennt C-DAT-02 (formaler Zugriffsschutz) von C-DAT-03 (nachgelagerte Nutzungs- und Löschregeln) und C-INT-03 (operative Verbundprozesse).
+
+% =============================================================================
+% Anhang B: Retrospektive Dokumentation der Taxonomieentwicklung
+% =============================================================================
+\needspace{6\baselineskip}
+\section*{Anhang B: Retrospektive Dokumentation der Taxonomieentwicklung}
 \label{sec:anhang-b}
 
-Die Taxonomieentwicklung folgte der DSR-orientierten Methodik nach \textcite{nickerson2013} im ersten Konstruktionszyklus \parencite{hevner2004, peffers2007} unter Berücksichtigung etablierter Reifegradmodell-Entwicklungsprinzipien \parencite{becker2009, debruin2005, poeppelbus2011}. Als Meta-Charakteristikum wurde der \textit{Grad organisationaler und interorganisationaler Fähigkeit zur selbstbestimmten, kontrollierten und verantwortungsvollen Gestaltung digitaler Ressourcen in föderierten Bildungsökosystemen} festgelegt. Tab.~\ref{tab:anhang-b} dokumentiert die erhaltenen Entwicklungsstände von den initialen Literaturkonstrukten über die konsolidierten Zwischendimensionen bis zur finalen sechsteiligen Taxonomie. Die Übergänge stellen eine transparente, modelltheoretische Rekonstruktion auf Basis der erhaltenen Artefaktstände dar; ein historisch lückenloses Sitzungs- oder Diskussionsprotokoll wird ausdrücklich nicht beansprucht.
+Die Entwicklung der Taxonomie folgt dem iterativen Methodenansatz von Nickerson, Varshney und Muntermann \cite{NVM13}. Methodisch ist dieser Entwicklungsprozess in einen übergeordneten Design-Science-Research-Zyklus (DSR) nach Hevner et al. \cite{He04} und Peffers et al. \cite{Pe07} eingebettet. Nickerson et al. bildet dabei die spezifische Konstruktionsmethode zur Dimensionen- und Kriterienherleitung innerhalb des DSR-Artefaktentwurfs, stellt jedoch selbst kein alternatives DSR-Gesamtrahmenwerk dar. Da kein lückenloses historisches Sitzungsprotokoll geführt wurde, dokumentiert die nachfolgende Darstellung die Konsolidierungsschritte als transparente, theoriegeleitete \textit{retrospektive Rekonstruktion} auf Basis der erhaltenen Artefaktentwürfe.
 
 \begin{longtblr}[
-  caption={Retrospektiv rekonstruierte Konsolidierungslogik aus erhaltenen Artefaktständen; Quelle: Eigene Darstellung},
-  label={tab:anhang-b},
+  caption={Mapping der Konstruktkonsolidierung (12 Ausgangskonstrukte $\rightarrow$ 8 Zwischenbereiche $\rightarrow$ 6 finale Dimensionen); Quelle: Eigene Darstellung},
+  label={tab:anhang-b-mapping},
   entry=none
 ]{
   width=\textwidth,
   colspec={
-    Q[l,wd=0.15\textwidth]
-    Q[l,wd=0.25\textwidth]
     Q[l,wd=0.30\textwidth]
+    Q[l,wd=0.35\textwidth]
     X[l]
   },
   rowhead=1,
   row{1}={font=\small\bfseries},
-  row{2-Z}={font=\fontsize{8.5pt}{11pt}\selectfont},
+  row{2-Z}={font=\fontsize{7.8pt}{9.8pt}\selectfont},
   hlines={0.3pt},
   cells={valign=t},
-  colsep=3.5pt,
-  rowsep=4pt
+  colsep=2.2pt,
+  rowsep=1.8pt
 }
 \toprule
-Schritt / Stand & Ausgangspunkt & Konsolidierungsentscheidung & Ergebnis und methodische Grenze \\
+Stand 1: 12 Ausgangskonstrukte & Stand 2: 8 Zwischenbereiche & Stand 3: 6 finale Dimensionen \\
 \midrule
-Stand 1\newline (initial) & 12 vorläufige Konstrukte aus der Literatur: IT-Strategie, Rollen, Datenarchitektur, Datenzugriff, Vendor Mgmt., Cloud Lock-in, APIs, Standards, Wissen, Schulung, Datenschutz, IT-Sicherheit. & Identifikation von Redundanzen (z.\,B. Vendor Mgmt. und Cloud Lock-in) und zu feiner Granularität für ein anwendbares Reifegradmodell. & Ausgangsbasis; diente als strukturierter Ausgangspunkt für iterative Zusammenführungen. \\
+1. IT-Strategie\newline 2. Rollen und Zuständigkeiten & Z1: Strategische IT-Steuerung und Governance\newline Z2: Rollen- und Organisationsstrukturen & \textbf{D1: Governance und Entscheidungsautonomie} (C-GOV-01 bis C-GOV-03) \\
 
-Stand 2\newline (Zwischenstand) & 12 vorläufige Konstrukte aus Stand 1 mit Bezug zu institutionellen und vernetzten Anforderungen. & Zusammenführung zu 8 Zwischenbereichen zur thematischen Vorstrukturierung zentraler Handlungsfelder. & Zentralbereiche abgebildet; noch bestehende enge thematische Kopplung zwischen Interoperabilität und Föderation. \\
+3. Datenarchitektur und Inventar\newline 4. Datenzugriffsrechte\newline 5. Datennutzung und Policies & Z3: Datenbestände und Datenarchitektur\newline Z4: Datenzugriff und Nutzungsregeln & \textbf{D2: Daten- und Informationssouveränität} (C-DAT-01 bis C-DAT-03) \\
 
-Stand 3\newline (final) & 8 Zwischenbereiche aus Stand 2. & Zusammenführung verwandter Bereiche zu den finalen 6 Dimensionen mit je 3 Kriterien (inkl. Vertrauens- und Lernaspekten). & \textbf{6 Dimensionen mit je genau 3 Kriterien (18 Kriterien).} Die Symmetrie ist eine bewusste Designentscheidung für ein kompaktes Self-Assessment, kein empirischer Naturgesetzlichkeitsbeweis. \\
+6. Vendor Management\newline 7. Cloud- und Plattform-Lock-in & Z5: Plattform- und Anbieterabhängigkeiten (Vendor Lock-in) & \textbf{D3: Technologische Abhängigkeiten} (C-TEC-01 bis C-TEC-03) \\
+
+8. Technische Schnittstellen (APIs)\newline 9. Offene Standards & Z6: Schnittstellen, Interoperabilität und offene Standards & \textbf{D4: Interoperabilität und Föderationsfähigkeit} (C-INT-01 bis C-INT-03) \\
+
+10. Mitarbeiterkompetenzen\newline (inkl. Schulungsaspekte) & Z7: Digitale Kompetenzen und Qualifizierung & \textbf{D5: Kompetenzen und organisationale Fähigkeiten} (C-COM-01 bis C-COM-03) \\
+
+11. Datenschutz\newline 12. Informationssicherheit & Z8: Compliance, Datenschutz und IT-Sicherheit & \textbf{D6: Compliance, Sicherheit und Vertrauen} (C-SEC-01 bis C-SEC-03) \\
 \bottomrule
 \end{longtblr}
 
-\vspace{0.4em}
-\textbf{Qualitätskriterien und Konsistenzprüfung:} Das MECE-Prinzip (mutually exclusive, collectively exhaustive) wurde als heuristisches Leitbild zur Minimierung semantischer Überschneidungen angewendet; eine empirisch bewiesene vollständige Disjunktheit oder Erschöpfung wird nicht behauptet. Die formativen Qualitätskriterien (\textit{Verständlichkeit}, \textit{Trennschärfe}, \textit{thematische Vollständigkeit relativ zum Korpus}, \textit{Operationalisierbarkeit} und \textit{Erweiterbarkeit}) wurden im abschließenden Revisionsschritt dokumentenbasiert als theoriegeleitete Prüfdimensionen angewendet. Im Zuge der Überarbeitung zeigte eine dokumentenbasierte Konsistenzprüfung, dass die sechs Dimensionen und 18 Kriterien in der vorliegenden Fassung stabil zugeordnet sind. Diese Prüfung dokumentiert die Konsistenz des erhaltenen Artefaktstands, stellt jedoch keine nachträglich rekonstruierte historische Abbruchbedingung des ursprünglichen Entwicklungsprozesses dar.
+\vspace{0.2em}
+\begin{longtblr}[
+  caption={Retrospektive Dokumentation der Taxonomie-Iterationen nach Nickerson et al.; Quelle: Eigene Darstellung},
+  label={tab:anhang-b-iterationen},
+  entry=none
+]{
+  width=\textwidth,
+  colspec={
+    Q[l,wd=0.14\textwidth]
+    Q[l,wd=0.20\textwidth]
+    Q[l,wd=0.18\textwidth]
+    Q[l,wd=0.24\textwidth]
+    X[l]
+  },
+  rowhead=1,
+  row{1}={font=\small\bfseries},
+  row{2-Z}={font=\fontsize{7.8pt}{9.8pt}\selectfont},
+  hlines={0.3pt},
+  cells={valign=t},
+  colsep=2.2pt,
+  rowsep=1.8pt
+}
+\toprule
+Schritt / Stand & Ausgangspunkt & Vorgehensrichtung & Konsolidierungsentscheidung & Ergebnis \& Ending Conditions \\
+\midrule
+Stand 1\newline (initial) & 12 vorläufige Konstrukte aus der Literaturanalyse (Strategie, Rollen, Architektur, Zugriff, Nutzung, Vendor, Lock-in, APIs, Standards, Wissen, Datenschutz, Sicherheit). & \textit{Conceptual-to-empirical}\newline (Deduktive Ableitung aus dem initialen Basiskorpus). & Identifikation von Redundanzen (z.\,B. Vendor Management vs. Cloud Lock-in) und zu feiner Zergliederung für ein handhabbares Reifegradmodell. & 12 Konstrukte als unstrukturierte Ausgangsbasis; formale Ending Conditions nach \cite{NVM13} noch nicht erfüllt (keine disjunkte Struktur). \\
 
-\vspace{0.8em}
-\section*{Anhang C: Konzeptionelle Ex-ante-Evaluation}
+Stand 2\newline (Zwischenstand) & 12 vorläufige Konstrukte aus Stand~1 mit Bezug zu föderierten Anforderungen. & \textit{Empirical-to-conceptual}\newline (Abgleich mit föderierten Referenzarchitekturen \cite{BM24a,Ga23}). & Zusammenführung der 12 Konstrukte zu 8 Zwischenbereichen (Z1--Z8) zur thematischen Vorstrukturierung zentraler Handlungsfelder. & 8 Zwischenbereiche abgebildet; enge Kopplung zwischen Schnittstellen und Kooperation; Ending Conditions noch nicht erfüllt. \\
+
+Stand 3\newline (final) & 8 Zwischenbereiche (Z1--Z8) aus Stand~2. & \textit{Conceptual-to-empirical}\newline (Theoriegeleitete Harmonisierung und Strukturierung nach \cite{BKP09}). & Zusammenführung verwandter Cluster zu den finalen 6 Dimensionen; Integration organisationaler Lernfähigkeit und Verankerung von Transparenz als Vertrauens-Proxy. & \textbf{Sechsdimensionale Taxonomie mit je 3 Kriterien (18 Kriterien).} Formale Ending Conditions nach \cite{NVM13} sowie qualitative Kriterien erfüllt. \\
+\bottomrule
+\end{longtblr}
+
+\vspace{0.2em}
+\textbf{Qualitätskriterien, Abbruchbedingungen und Abgrenzung:} Die symmetrische Struktur stellt eine Designentscheidung dar und keinen empirischen Nachweis einer natürlich gegebenen Taxonomiestruktur. In Übereinstimmung mit den Ausführungen im Hauptpaper (S.~3) wurden nach der dritten Iteration die formalen Abbruchbedingungen (\textit{Ending Conditions}) nach Nickerson et al. \cite{NVM13} erfüllt: In der finalen Iteration wurden keine neuen Dimensionen oder Kriterien hinzugefügt, keine bestehenden Dimensionen zusammengelegt oder aufgespalten, und jedes Kriterium ist genau einer Dimension überschneidungsfrei zugeordnet. Zugleich wurden die fünf formativen Qualitätskriterien (\textit{Verständlichkeit}, \textit{Trennschärfe}, \textit{thematische Vollständigkeit relativ zum Korpus}, \textit{Operationalisierbarkeit} und \textit{Erweiterbarkeit}) im abschließenden Revisionsschritt erfüllt. 
+
+\textit{Wichtige methodische Abgrenzung:} Die fünf taxonomiebezogenen Qualitätskriterien nach Nickerson et al. sind von den sechs artefaktbezogenen Designanforderungen DA1–DA6 zu unterscheiden. Ausschließlich DA1–DA6 bilden den Prüfmaßstab der Ex-ante-Evaluation in Anhang~C.
+
+% =============================================================================
+% Anhang C: Konzeptionelle Ex-ante-Evaluation
+% =============================================================================
+\needspace{6\baselineskip}
+\section*{Anhang C: Detaillierte Ex-ante-Evaluation}
 \label{sec:anhang-c}
 
-Die Ex-ante-Evaluation schließt den ersten DSR-Zyklus ab. Sie prüft als interne, dokumentenbasierte Traceability-Analyse die strukturelle Passung zwischen den sechs Designanforderungen (DA1--DA6) und den Komponenten des Artefakts (Dimensionen, Kriterien, Items, Skala, Aggregationslogik). Sie stellt ausdrücklich keinen empirischen Validitätsnachweis dar.
+Die konzeptionelle Ex-ante-Evaluation schließt den ersten DSR-Zyklus des Forschungsprojekts methodisch ab. Ihr Ziel ist es, die konzeptionelle Passung und strukturelle Vollständigkeit des konstruierten Reifegradmodells vor einer empirischen Feldanwendung zu überprüfen.
+
+\textbf{Evaluationsverfahren:} Die interne Evaluation wurde durch die beiden an der Konstruktion beteiligten forschenden Autoren durchgeführt. Als Arbeitsgrundlage dienten das Dimensionen- und Kriterienmodell, der Codierleitfaden (Anhang~A), das Dokumentationsprotokoll der Taxonomieentwicklung (Anhang~B), die sechsstufige Bewertungsskala (Tabelle~2 im Hauptpaper) sowie die sechs aus der Literatur abgeleiteten Designanforderungen DA1–DA6 (Hauptpaper Abschnitt~3). Im Rahmen einer systematischen Matrixanalyse wurde jede Anforderung den korrespondierenden Artefaktkomponenten gegenübergestellt. Auftretende Diskrepanzen in der Bewertungseinstufung wurden analog zur qualitativen Inhaltsanalyse nach Mayring \cite{Ma14} diskursiv reflektiert und bis zur einvernehmlichen Konsensbildung diskutiert.
+
+\textbf{Definition der Bewertungskategorien:} Zur Vermeidung von Scheingenauigkeit erfolgt die Einstufung anhand von drei trennscharf definierten Kategorien:
+\begin{itemize}[leftmargin=1.8em,itemsep=0.08em]
+  \item \textbf{„formal umgesetzt“}: Die Designanforderung ist vollständig, deterministisch und mathematisch-strukturell im Artefakt verankert (z.\,B. eindeutige Berechnungsformeln für $M_d$ und $L_d$, feste Skalenanker), sodass die Erfüllung ohne subjektiven Auslegungsspielraum nachprüfbar ist.
+  \item \textbf{„konzeptionell adressiert“}: Die Anforderung ist durch theoretische Fundierung, Begriffsdefinitionen und strukturelle Artefaktelemente vollinhaltlich hinterlegt, bedarf jedoch für den empirischen Wirkungsnachweis der praktischen organisatorischen Ausgestaltung.
+  \item \textbf{„teilweise adressiert“}: Die strukturellen Vorbedingungen sind im Artefakt angelegt (z.\,B. Begrenzung auf 18 Items zur Begrenzung von Erhebungsaufwänden), die tatsächliche Zielerreichung im praktischen Feld (z.\,B. Vermeidung von Respondent Fatigue, reale Bearbeitungszeit) kann jedoch konzeptionell nicht garantiert werden und erfordert zwingend eine empirische Prüfung.
+\end{itemize}
 
 \begin{longtblr}[
-  caption={Traceability-Matrix der Designanforderungen (DA1--DA6); Quelle: Eigene Darstellung},
+  caption={Ex-ante-Evaluation der Designanforderungen (DA1--DA6) anhand von Bildungsökosystem-Artefakten; Quelle: Eigene Darstellung},
   label={tab:anhang-c},
   entry=none
 ]{
@@ -195,33 +263,102 @@ Die Ex-ante-Evaluation schließt den ersten DSR-Zyklus ab. Sie prüft als intern
   },
   rowhead=1,
   row{1}={font=\small\bfseries},
-  row{2-Z}={font=\fontsize{8.5pt}{10.8pt}\selectfont},
+  row{2-Z}={font=\fontsize{7.8pt}{9.8pt}\selectfont},
   hlines={0.3pt},
   cells={valign=t},
-  colsep=3.5pt,
-  rowsep=4pt
+  colsep=2.2pt,
+  rowsep=2.0pt
 }
 \toprule
 ID & Anforderung \& Evaluationsfrage & Evidenz im Artefakt & Bewertung & Verbleibender empirischer Prüfbedarf \\
 \midrule
-\textbf{DA1} & \textbf{Mehrdimensionalität:}\newline Werden technische, datenbezogene, organisationale, rechtliche und interorganisationale Aspekte abgebildet? & 6 Dimensionen und 18 Kriterien; dokumentierte Definitionen und Abgrenzungen in Anhang~A und B. & \textbf{Konzeptionell adressiert.}\newline Mehrdimensionale Abbildung des berücksichtigten Korpus. & Vollständigkeit und Trennschärfe aus Sicht realer Organisationen; Prüfung zusätzlicher Kriterien. \\
+\textbf{DA1} & \textbf{Mehrdimensionalität:}\newline Werden technische, datenbezogene, organisationale, rechtliche und interorganisationale Aspekte abgebildet? \cite{PT20,Fr24,SHO24} & 6 Dimensionen und 18 Kriterien; dokumentierte Definitionen und Abgrenzungen in Anhang~A und B. & \textbf{Konzeptionell adressiert.}\newline Mehrdimensionale Abdeckung des relevanten IS- und Domänenkorpus. & Vollständigkeit und Trennschärfe aus Sicht realer Bildungsorganisationen; Prüfung zusätzlicher Subkriterien. \\
 
-\textbf{DA2} & \textbf{Operationalisierung:}\newline Werden abstrakte Konzepte in konkret bewertbare Merkmale überführt? & 18 Self-Assessment-Items auf einheitlicher 0--5-Skala mit dokumentierten Ableitungsbegründungen. & \textbf{Konzeptionell adressiert.}\newline Durchgängige Kette: Literatur $\rightarrow$ Code $\rightarrow$ Kriterium $\rightarrow$ Item. & Inhaltsvalidität, Verständlichkeit der Itemformulierungen, Antwortprozesse und Konstruktvalidität. \\
+\textbf{DA2} & \textbf{Operationalisierung:}\newline Werden abstrakte Souveränitätskonzepte in konkret bewertbare Merkmale überführt? \cite{SHO24,Ab24,PR11} & 18 Self-Assessment-Items auf einheitlicher 0--5-Skala mit dokumentierten Ableitungsbegründungen. & \textbf{Konzeptionell adressiert.}\newline Durchgängige Kette: Literatur $\rightarrow$ Code $\rightarrow$ Kriterium $\rightarrow$ Item. & Inhaltsvalidität, Verständlichkeit der Itemformulierungen, Antwortprozesse und Konstruktvalidität. \\
 
-\textbf{DA3} & \textbf{Kompakte Anwendbarkeit:}\newline Ist das Instrument mit vertretbarem Erhebungsaufwand als Self-Assessment nutzbar? & Genau 18 Items, einheitliche Antwortskala, Verzicht auf ausufernde Subskalen. & \textbf{Teilweise adressiert.}\newline Kompakte Architektur vorhanden; Anwendbarkeit aus Struktur allein nicht ableitbar. & Tatsächliche Bearbeitungsdauer, organisatorischer Aufwand, Evidenzbeibringung und Vermeidung von Respondent Fatigue. \\
+\textbf{DA3} & \textbf{Kompakte Anwendbarkeit:}\newline Ist das Instrument mit vertretbarem Erhebungsaufwand als Self-Assessment nutzbar? \cite{TB23,PR11} & Genau 18 Items, einheitliche Antwortskala, Verzicht auf ausufernde Subkriterienkataloge. & \textbf{Teilweise adressiert.}\newline Kompakte Architektur vorhanden; Anwendbarkeit aus Struktur allein nicht ableitbar. & Tatsächliche Bearbeitungsdauer, organisatorischer Erhebungsaufwand, Evidenzbeibringung und Vermeidung von Respondent Fatigue. \\
 
-\textbf{DA4} & \textbf{Vergleichbarkeit:}\newline Erzeugt das Modell nach einheitlichen Berechnungsregeln vergleichbare Profile? & Einheitliche Skala; Dimensionsmittelwert $M_d=\frac{1}{3}\sum x_{dk}$; Stufenlogik $L_d=\min_k(x_{dk})$; Profil $P=(L_1,\dots,L_6)$. & \textbf{Formal umgesetzt.}\newline Bei gleicher Eingabe deterministisch gleiche Verdichtung. & Vergleichbare Auslegung der Skalenanker und Umgang mit unterschiedlichen institutionellen Kontexten. \\
+\textbf{DA4} & \textbf{Vergleichbarkeit:}\newline Erzeugt das Modell nach einheitlichen Berechnungsregeln vergleichbare Profile? \cite{BKP09,dB05} & Einheitliche Skala; Dimensionsmittelwert $M_d=\frac{1}{3}\sum x_{dk}$; Stufenlogik $L_d=\min_k(x_{dk})$; Profil $P=(L_1,\dots,L_6)$. & \textbf{Formal umgesetzt.}\newline Bei identischer Eingabe mathematisch deterministisch gleiche Verdichtung. & Vergleichbare Auslegung der Skalenanker und Umgang mit unterschiedlichen institutionellen Kontexten. \\
 
-\textbf{DA5} & \textbf{Handlungsorientierung:}\newline Werden Entwicklungsfelder und Engpässe prioritär sichtbar gemacht? & Nicht-kompensatorisches Minimumprinzip ($L_d=\min x_{dk}$) verhindert Verdeckung von Defiziten; Verzicht auf Gesamtindex. & \textbf{Konzeptionell adressiert.}\newline Kriterien mit Minimalwert begrenzen nächste Reifegradstufe. & Praktische Nützlichkeit der Priorisierung und Eignung daraus abgeleiteter Handlungsempfehlungen. \\
+\textbf{DA5} & \textbf{Handlungsorientierung:}\newline Werden Entwicklungsfelder und Engpässe prioritär sichtbar gemacht? \cite{PR11,St23} & Nicht-kompensatorisches Minimumprinzip ($L_d=\min x_{dk}$) verhindert Verdeckung von Defiziten; Verzicht auf Gesamtindex. & \textbf{Konzeptionell adressiert.}\newline Kriterien mit Minimalwert begrenzen nächste Reifegradstufe direkt. & Praktische Nützlichkeit der Priorisierung und Eignung daraus abgeleiteter Handlungsempfehlungen. \\
 
-\textbf{DA6} & \textbf{Erweiterbarkeit:}\newline Ist das Artefakt modular dokumentiert und in Folgezyklen anpassbar? & Trennung von Dimensionen, Kriterien, Items, Skala, Aggregationslogik und Ergebnisprofil. & \textbf{Konzeptionell adressiert.}\newline Anpassungen können auf einzelne Komponenten zurückgeführt werden. & Empirisch begründete Modifikation, Gewichtung oder Ergänzung von Kriterien in Folgezyklen. \\
+\textbf{DA6} & \textbf{Erweiterbarkeit und Evaluierbarkeit:}\newline Ist das Artefakt modular dokumentiert und in Folgezyklen erweiterbar sowie empirisch evaluierbar? \cite{He04,Pe07} & Modulare Entkopplung von Dimensionen, Kriterien, Items, Skala und Aggregationslogik; transparente Operationalisierung. & \textbf{Konzeptionell adressiert.}\newline Komponenten isoliert modifizierbar; Kriterien bieten Ansatzpunkte für statistische/qualitative Evaluation. & Empirisch begründete Modifikation, Gewichtung oder Ergänzung von Kriterien sowie Durchführung von Feldevaluationen. \\
 \bottomrule
 \end{longtblr}
 
-\vspace{0.4em}
-\textbf{Gesamtergebnis der Evaluation:} DA4 ist formal umgesetzt; DA1, DA2, DA5 und DA6 sind konzeptionell adressiert. DA3 ist aufgrund der kompakten Struktur teilweise adressiert, bedarf jedoch zwingend der empirischen Erprobung in realen Bildungsorganisationen. Die Evaluation stützt die interne Kohärenz und Nachvollziehbarkeit des ersten Artefaktentwurfs; Aussagen zur praktischen Messvalidität bleiben Folgezyklen vorbehalten.
+\vspace{0.25em}
+\textbf{Gesamtergebnis und Aussagegrenze:} DA4 ist formal umgesetzt; DA1, DA2, DA5 und DA6 sind konzeptionell adressiert. DA3 ist aufgrund der kompakten Strukturierung teilweise adressiert, bedarf jedoch der empirischen Erprobung in realen Bildungsorganisationen. Es wird ausdrücklich klargestellt, dass diese interne Ex-ante-Evaluation keinen empirischen Validitätsnachweis darstellt, sondern die theoretische Kohärenz und Nachvollziehbarkeit des ersten Artefaktentwurfs absichert.
 
-\vspace{0.8em}
+% =============================================================================
+% Anhang D: Strukturierte Literaturrecherche (PRISMA 2020)
+% =============================================================================
+\needspace{6\baselineskip}
+\section*{Anhang D: Strukturierte Literaturrecherche}
+\label{sec:anhang-d}
+
+Zur Fundierung des theoretischen Rahmens und zur Identifikation der Forschungslücke erfolgte eine strukturierte Literaturrecherche in Anlehnung an das PRISMA-2020-Statement \cite{WW02}. Gegenstand war die systematische Erfassung des wissenschaftlichen State-of-the-Art an der Schnittstelle von Datensouveränität, Reifegradmodellen und föderierten Systemarchitekturen.
+
+\textbf{Recherchedesign und Datenbanken:} Die Suche wurde in drei führenden wirtschaftsinformatischen Datenbanken durchgeführt: AIS eLibrary, SpringerLink und IEEE Xplore. Der zeitliche Fokus lag primär auf aktuellen Publikationen der Jahre 2023 bis 2025, um die jüngsten methodischen Entwicklungen zu erfassen; historische Grundlagenwerke wurden über Snowballing erschlossen.
+
+\textbf{Suchstrings und Terminologieanpassung:} Eine initiale explorative Suche nach dem deutschen Begriff \textit{„digitale Souveränität“} bestätigte den im Hauptpaper (Abschnitt~2.3) beschriebenen Befund, dass einschlägige wirtschaftsinformatische DSR- und Architekturarbeiten fast ausschließlich im englischsprachigen Fachdiskurs publiziert werden. Entsprechend wurden kombinierte Boole'sche Suchstrings eingesetzt:
+\begin{itemize}[leftmargin=1.8em,itemsep=0.08em]
+  \item \textbf{Suchstring 1 (Souveränität in IS):}\newline {\small\texttt{("Data Sovereignty" OR "Digital Sovereignty") AND}\newline\texttt{("Information Systems" OR "Inter-organizational")}}
+  \item \textbf{Suchstring 2 (Reifegradmodelle \& DSR):}\newline {\small\texttt{("Maturity Assessment" OR "Maturity Model*") AND}\newline\texttt{("Continuous Method" OR "Design Science")}}
+\end{itemize}
+
+\textbf{Ein- und Ausschlusskriterien:} Die Auswahl erfolgte anhand vorab fixierter Kriterien:
+\begin{itemize}[leftmargin=1.8em,itemsep=0.08em]
+  \item \textit{Einschlusskriterien (IK):} IK1: Peer-reviewter wissenschaftlicher Beitrag in Fachzeitschrift oder Konferenzband; IK2: Thematisierung von Datensouveränität, digitaler Souveränität oder Reifegradmodellen; IK3: Relevanz für interorganisationale oder föderierte Informationssysteme; IK4: Sprache Englisch oder Deutsch.
+  \item \textit{Ausschlusskriterien (EK):} EK1: Rein tagespolitische Kommentare oder bildungspolitische Absichtserklärungen ohne informationstechnische Operationalisierung; EK2: Isolierte Monolithwerkzeuge ohne Ökosystem- oder Föderationsperspektive; EK3: Nicht begutachtete Kurzbeiträge, Editorials oder Poster-Abstracts.
+\end{itemize}
+
+\begin{longtblr}[
+  caption={Systematischer Selektionsprozess des Quellenkorpus nach PRISMA 2020; Quelle: Eigene Darstellung},
+  label={tab:anhang-d-prisma},
+  entry=none
+]{
+  width=\textwidth,
+  colspec={
+    Q[l,wd=0.22\textwidth]
+    Q[c,wd=0.12\textwidth]
+    Q[l,wd=0.38\textwidth]
+    X[l]
+  },
+  rowhead=1,
+  row{1}={font=\small\bfseries},
+  row{2-Z}={font=\fontsize{7.8pt}{9.8pt}\selectfont},
+  hlines={0.3pt},
+  cells={valign=t},
+  colsep=2.2pt,
+  rowsep=1.8pt
+}
+\toprule
+PRISMA-Phase & Datensätze & Beschreibung \& Begründung & Verbleibend \\
+\midrule
+\textbf{1. Identifikation}\newline (Datenbanksuche) & $N = 254$ & Abfrage der Datenbanken: AIS eLibrary ($n = 84$), SpringerLink ($n = 112$), IEEE Xplore ($n = 58$) für 2023--2025. & $N = 254$ \\
+
+\textbf{2. Bereinigung}\newline (Deduplikation) & $n = 42$ & Entfernung identischer Datensätze über DOI- und Titelabgleich. & $n = 212$ \\
+
+\textbf{3. Screening}\newline (Titel \& Abstract) & $n = 212$ & Prüfung gegen IK1--IK4 und EK1--EK3. Ausschluss von $n = 178$ Beiträgen (rein pädagogische Studien ohne IS-Bezug, reine Hardware-Netzwerkberichte). & $n = 34$ \\
+
+\textbf{4. Volltextprüfung}\newline (Eligibility) & $n = 34$ & Eingehende Prüfung auf konzeptionelle Eignung für föderierte Reifegradmodelle. Ausschluss von $n = 25$ Beiträgen (rein makropolitische Positionspapiere ohne Metrik, isolierte Einzelsysteme). & $n = 9$ Primärstudien \\
+
+\textbf{5. Snowballing \& Grauliteratur} & $n = 5$ & Gezielte Vorwärts- und Rückwärtssuche nach Webster/Watson \cite{WW02} sowie Einbezug normativer Standarddokumente (\cite{OE23,BM24a,Ze26,Ga23,BT24}). & $N_{\mathrm{final}} = 12$ Domänenquellen \\
+\bottomrule
+\end{longtblr}
+
+\vspace{0.25em}
+\textbf{Korpuszusammensetzung und methodische Fundierung:} Der finale Domänenkorpus umfasst exakt die 12 in der Konzeptmatrix des Hauptpapers (Tabelle~1, S.~6) synthetisierten Arbeiten:
+\begin{enumerate}[leftmargin=1.8em,itemsep=0.05em]
+  \item \textit{Primärstudien aus der Datenbankrecherche ($n = 9$):} Otto \& Jarke \cite{OJ19}, Stoiber et al. \cite{St23}, von Scherenberg et al. \cite{SHO24}, Opriel et al. \cite{Op25}, Abbas et al. \cite{Ab24}, Fratini et al. \cite{Fr24}, Mihale-Wilson \& Carl \cite{MC24}, Kianpour et al. \cite{KDW25}, Pohle \& Thiel \cite{PT20}.
+  \item \textit{Snowballing und normative Referenzdokumente ($n = 5$):} OECD Digital Education Outlook \cite{OE23}, BMBF MeinBildungsraum \cite{BM24a}, ZenDiS Souveränitätscheck \cite{Ze26}, Gaia-X / IDSA Rulebook \cite{Ga23}, Deutscher Bundestag Bildungsbericht \cite{BT24} (teilweise in Tab.~1 des Hauptpapers unter denselben Oberbegriffen geführt).
+\end{enumerate}
+Ergänzend wurde ein separater Methodenkorpus herangezogen: Design Science Research (\cite{He04,Pe07}), Entwicklung von Reifegradmodellen (\cite{BKP09,dB05,PR11,TB23}), qualitative Inhaltsanalyse (\cite{Ma14}) und Taxonomieentwicklung (\cite{NVM13}).
+
+% =============================================================================
+% Literaturverzeichnis
+% =============================================================================
+\needspace{6\baselineskip}
 \printbibliography[title={Literaturverzeichnis}]
 
 \end{document}
