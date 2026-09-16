@@ -1,0 +1,374 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[a4paper,total={12.6cm,19.2cm},centering,includehead,headheight=20.4pt,headsep=12pt,footskip=24pt]{geometry}
+\usepackage[ngerman]{babel}
+\usepackage{fontspec}
+\setmainfont{TeXGyreTermes}
+\setsansfont{TeXGyreHeros}
+\setmonofont{Latin Modern Mono}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+
+\DefTblrTemplate{firsthead}{default}{}
+\DefTblrTemplate{middlehead,lasthead}{default}{}
+\DefTblrTemplate{caption-tag}{default}{\textbf{Tab.~\thetable}}
+\DefTblrTemplate{caption-sep}{default}{\textbf{:~}}
+\DefTblrTemplate{lastfoot}{default}{
+  \UseTblrTemplate{note}{default}
+  \UseTblrTemplate{remark}{default}
+  \vspace{0.25em}
+  \raggedright\small
+  \UseTblrTemplate{caption-tag}{default}\UseTblrTemplate{caption-sep}{default}\UseTblrTemplate{caption-text}{default}\par
+}
+
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{needspace}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=alphabetic,maxbibnames=99,sorting=nyt,doi=true,url=true,isbn=false,eprint=false]{biblatex}
+\addbibresource{references.bib}
+
+\setcounter{biburlnumpenalty}{100}
+\setcounter{biburlucpenalty}{100}
+\setcounter{biburllcpenalty}{100}
+
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle={Ein Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen},
+  pdfauthor={Anonymous Authors},
+  pdfsubject={Konzeptionelle Konstruktion und Evaluation},
+  pdfkeywords={Digitale Souveränität, Föderierte Bildungsökosysteme, Reifegradmodell, Design Science Research, IT-Governance}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\linespread{1.02}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Blinded for Review}
+\fancyhead[R]{\footnotesize\itshape Digitale Souveränität in Bildungsökosystemen}
+\fancyfoot[C]{\footnotesize Seite \thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Ein Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen\par}
+  \vspace{0.4em}
+  {\large\itshape Konzeptionelle Konstruktion und Evaluation\par}
+  \vspace{1.0em}
+  {\normalsize Anonymous Authors\par}
+  {\footnotesize Blinded for Review\par}
+  \vspace{1.0em}
+\end{center}
+
+\begin{abstract}
+\noindent\textbf{Abstract:} Föderierte Bildungsökosysteme verbinden rechtlich eigenständige Institutionen über gemeinsame digitale Dienste und Dateninfrastrukturen. Dadurch entstehen technische und organisationale Abhängigkeiten, deren Auswirkungen auf die digitale Souveränität bislang nur unzureichend systematisch bewertbar sind. Der Beitrag entwickelt daher im Rahmen eines Design-Science-Research-Ansatzes ein Reifegradmodell zur organisationsübergreifenden Bewertung digitaler Souveränität. Auf Basis einer strukturierten Literaturrecherche, qualitativen Inhaltsanalyse und iterativen Taxonomieentwicklung werden sechs Dimensionen mit 18 Kriterien abgeleitet und in ein Self-Assessment mit einer sechsstufigen, nicht-kompensatorischen Bewertungslogik überführt. Eine szenariobasierte Demonstration und eine konzeptionelle Ex-ante-Evaluation zeigen, wie das Modell dimensionsbezogene Stärken, Schwächen und Entwicklungsfelder sichtbar macht. Das Artefakt bietet damit eine methodisch begründete Grundlage für die Steuerung digitaler Souveränität. Seine empirische Validierung in realen Bildungsverbünden steht noch aus.
+
+\vspace{0.4em}
+\noindent\textbf{Keywords:} Digitale Souveränität, Föderierte Bildungsökosysteme, Reifegradmodell, Design Science Research, IT-Governance
+\end{abstract}
+
+\vspace{0.5em}
+
+\section{Einleitung und Forschungsdesign}
+
+Digitale Souveränität ist zu einem zentralen Begriff der digitalen Transformation geworden \cite{Fr24}. Für Organisationen stellt sich zunehmend die Frage, inwieweit sie digitale Ressourcen, Infrastrukturen und strategische Entwicklungen selbstbestimmt kontrollieren und steuern können \cite{SHO24}. Über politische Debatten um technologische Autonomie hinaus gewinnt sie damit auch auf organisationaler Ebene an informationstechnischer Relevanz \cite{Ab24}.
+
+Besonders relevant ist dies in Bildungsökosystemen, in denen mehrere eigenständige Institutionen wie Hochschulen, Forschungseinrichtungen oder Weiterbildungsanbieter gemeinsame digitale Dienste, Lernplattformen und Dateninfrastrukturen nutzen \cite{BM24a,MC24}. Da sich diese Akteure in IT-Governance, technischen Systemen, Rechtsrahmen und strategischen Zielen unterscheiden, entsteht digitale Souveränität hier erst im Zusammenspiel mehrerer Organisationen und Systeme \cite{OJ19,Op25,SHO24}.
+
+Trotz ihrer hohen Relevanz bleibt digitale Souveränität im organisationalen Kontext schwer messbar. Bestehende Ansätze fokussieren häufig isolierte Aspekte wie Datenschutz, Datenkontrolle, technologische Abhängigkeit oder Governance \cite{Fr24,Ze26}. Für Bildungsökosysteme fehlt ein kompaktes, wissenschaftlich fundiertes und praxisnahes Instrument, das die technischen, organisatorischen und interorganisationalen Dimensionen integriert.
+
+Reifegradmodelle eignen sich, weil digitale Souveränität nicht binär vorliegt, sondern je nach Dimension unterschiedlich ausgeprägt ist. Sie strukturieren organisationale Fähigkeiten in Dimensionen und Entwicklungsstufen und ermöglichen so Standortbestimmung, Vergleichbarkeit und die Ableitung konkreter Verbesserungsmaßnahmen \cite{dB05,BKP09,PR11}, vorausgesetzt, sie bleiben nicht bei abstrakten Statuswerten stehen, sondern machen Handlungsfelder sichtbar \cite{TB23}.
+
+Die zentrale Forschungsfrage lautet daher:
+\begin{quote}
+\itshape
+Wie kann ein literaturbasiertes und taxonomisch hergeleitetes Reifegradmodell konstruiert werden, um digitale Souveränität in Bildungsökosystemen systematisch, vergleichbar und handlungsorientiert bewertbar zu machen?
+\end{quote}
+
+Zur Beantwortung dieser Forschungsfrage werden folgende Unterfragen betrachtet:
+\begin{itemize}[leftmargin=1.8em,itemsep=0.15em]
+  \item Welche Dimensionen und Kriterien digitaler Souveränität lassen sich mithilfe einer taxonomischen Vorgehensweise aus der bestehenden Literatur ableiten?
+  \item Wie können diese Dimensionen und Kriterien in ein Reifegradmodell mit Self"=Assessment"=Logik überführt werden?
+\end{itemize}
+
+Die Beantwortung erfolgt im Rahmen eines Design-Science-Research-Ansatzes (DSR) nach Peffers et al. \cite{Pe07}, da die wissenschaftliche Erkenntnis hier durch die Konstruktion eines Artefakts erzeugt wird. Die Bewertungsdimensionen werden mittels iterativer Taxonomieentwicklung nach Nickerson, Varshney und Muntermann \cite{NVM13} hergeleitet. Da der Literaturkorpus neben peer-reviewten Publikationen auch Referenzarchitekturen und graue Literatur umfasst, wurde dem Verfahren eine strukturierende qualitative Inhaltsanalyse nach Mayring \cite{Ma14} vorgeschaltet. Die Codierung erfolgte durch beide Autoren unabhängig voneinander, Diskrepanzen wurden bis zur Konsensbildung diskursiv aufgelöst. Nach der dritten Iteration waren die formalen Abbruchbedingungen sowie die Qualitätskriterien Verständlichkeit, Trennschärfe, Vollständigkeit, Operationalisierbarkeit und Erweiterbarkeit erfüllt. Die resultierende Taxonomie wird anschließend nach Becker, Knackstedt und Pöppelbuß \cite{BKP09} in ein Reifegradmodell überführt. Die Evaluation erfolgt ex ante entlang der definierten Designanforderungen. Eine empirische Validierung ist nicht Gegenstand dieses ersten DSR-Zyklus.
+
+Abschnitt~2 verortet digitale Souveränität in föderierten Bildungsökosystemen theoretisch und identifiziert anhand einer Konzeptmatrix nach Webster und Watson \cite{WW02} die Forschungslücke. Abschnitt~3 konstruiert das Artefakt, Abschnitt~4 demonstriert es an einem Ökosystem-Szenario und evaluiert es ex ante, Abschnitt~5 diskutiert Beitrag, Limitationen und weiteren Forschungsbedarf.
+
+\section{Konzeptionelle Grundlagen und Forschungsstand}
+
+\subsection{Digitale Souveränität}
+
+Digitale Souveränität beschreibt die Fähigkeit von Organisationen, digitale Technologien, Daten und Infrastrukturen selbstbestimmt, kontrolliert und verantwortungsvoll zu nutzen und zu gestalten. Im organisationalen Kontext bedeutet dies nicht vollständige Unabhängigkeit, sondern die bewusste Analyse und Steuerung digitaler Abhängigkeiten, etwa gegenüber Plattformen, Cloud-Anbietern oder Dateninfrastrukturen \cite{PT20,Fr24}. Zentrale Dimensionen sind Datenkontrolle, technologische Handlungsfähigkeit, Governance-Strukturen, digitale Kompetenzen und regulatorische Anschlussfähigkeit \cite{SHO24,PT20}.
+
+Aktuelle Arbeiten verstehen Datensouveränität und digitale Souveränität zunehmend als mehrdimensionale Konstrukte, die technische, organisationale, datenbezogene und strategische Aspekte miteinander verbinden \cite{Ab24,SHO24}. Für Organisationen bedeutet digitale Souveränität daher, digitale Handlungsfähigkeit aufzubauen und zugleich Abhängigkeiten so zu gestalten, dass strategische Autonomie erhalten bleibt.
+
+\subsection{Föderierte Bildungsökosysteme}
+
+Föderierte Bildungsökosysteme bestehen aus rechtlich eigenständigen Institutionen, die gemeinsame digitale Dienste, Plattformen, Datenräume oder Prozesse nutzen. Dadurch entsteht ein Spannungsfeld zwischen Kooperation und Autonomie: Einerseits sollen Interoperabilität, Datenaustausch und gemeinsame Infrastrukturen ermöglicht werden, andererseits müssen Datenschutz, Verantwortlichkeiten und institutionelle Entscheidungsfreiheit gesichert bleiben \cite{OE23,Ab24}. Digitale Souveränität betrifft in solchen Ökosystemen daher nicht nur einzelne Institutionen, sondern auch die Governance des Verbunds insgesamt \cite{Op25,OJ19}. Besonders relevant sind hierbei Fragen der Datenkontrolle, der Anbieterabhängigkeit, der technischen Anschlussfähigkeit, der Rollenverteilung und der Vertrauensbildung zwischen den beteiligten Akteuren \cite{BM24a,BM24b,BT24,Ga23,ID23,Ze26}.
+
+\subsection{Literaturrecherche und State-of-the-Art}
+
+Zur Fundierung des theoretischen Rahmens und zur Identifikation der Forschungslücke erfolgte eine strukturierte Literaturrecherche in einschlägigen wirtschaftsinformatischen Publikationsdatenbanken (AIS eLibrary, SpringerLink, IEEE Xplore). Die systematische Such- und Selektionsstrategie orientierte sich an den PRISMA-2020-Richtlinien \cite{Pa21}. Der zeitliche Fokus der Datenbankabfragen lag primär auf aktuellen Publikationen der Jahre 2023 bis 2025, um den rezenten methodischen State-of-the-Art der Forschung zu erfassen.
+
+Eine initiale Recherche zeigte, dass der organisationsbezogene Diskurs in der aktuellen Fachliteratur häufig abweichende Terminologien verwendet. Die exakte Schlagwortsuche nach \textit{„digitaler Souveränität“} griff zu kurz, da einschlägige DSR- und Architekturstudien primär unter Begriffen wie \textit{„Data Sovereignty“}, \textit{„Inter-organizational Information Systems“} oder \textit{„Digital Ecosystems“} publiziert werden. Entsprechend wurden erweiterte, kombinierte Boole'sche Suchstrings angewendet:
+\begin{itemize}[leftmargin=1.8em,itemsep=0.1em]
+  \item \textbf{Suchstring 1 (Souveränität in IS):}\newline
+  {\small\ttfamily\detokenize{("Data Sovereignty" OR "Digital Sovereignty") AND}\newline\detokenize{("Information Systems" OR "Inter-organizational")}}
+  \item \textbf{Suchstring 2 (Reifegradmodelle \& DSR):}\newline
+  {\small\ttfamily\detokenize{("Maturity Assessment" OR "Maturity Model*") AND}\newline\detokenize{("Continuous Method" OR "Design Science")}}
+\end{itemize}
+
+Durch diese Filterung konnten hochaktuelle konzeptionelle Fundamente in den Korpus aufgenommen werden, welche Datensouveränität als mehrdimensionales IS-Konstrukt definieren \cite{SHO24,Ab24}. Da das Untersuchungsfeld stark durch makropolitische Initiativen und Standardisierungsbestrebungen geprägt ist, wurde die Datenbanksuche zweigleisig durch die gezielte Einbeziehung referenzarchitektonischer Dokumente und normativer Standards \cite{BM24a,BM24b,BT24,Ga23,ID23,OE23,Ze26} sowie eine methodische Vorwärts- und Rückwärtssuche (Snowballing) nach Webster und Watson \cite{WW02} für historische Grundlagenarbeiten \cite{OJ19,PT20} ergänzt.
+
+Im Rahmen dieser Suchstrategie konnten sechzehn relevante Domänenquellen identifiziert werden: sieben peer-reviewte Primärstudien aus der Datenbankrecherche (2023--2025), zwei theoretische Grundlagenwerke aus dem Snowballing (2019--2020) sowie sieben normative und praxisorientierte Referenzdokumente. Der detaillierte PRISMA-Ablauf mit allen Selektionsschritten ist im beiliegenden Online-Supplement dokumentiert.
+
+\subsection{Konzeptmatrix und Identifikation der Forschungslücke}
+
+Die identifizierten 16 Domänenquellen lassen sich in Anlehnung an Webster und Watson \cite{WW02} in einer multikriteriellen Konzeptmatrix strukturieren (Tab.~1). Diese klassifiziert den State-of-the-Art entlang der vier Kernanforderungen föderierter Bildungsarchitekturen.
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\caption{Konzeptmatrix Reifegradmodelle und Datensouveränität; Quelle: Eigene Darstellung}
+\vspace{0.2em}
+\begin{tblr}{
+  width=\textwidth,
+  colspec={
+    X[l,m]
+    Q[c,m,wd=1.55cm]
+    Q[c,m,wd=1.55cm]
+    Q[c,m,wd=1.65cm]
+    Q[c,m,wd=1.55cm]
+  },
+  hline{1,2,21} = {0.08em,black},
+  hline{3,11,14} = {0.05em,gray!50},
+  row{1} = {font=\bfseries,c,m},
+  rowsep=1.2pt
+}
+Quelle / Autor & {Domäne:\\Bildung} & {Konzept:\\Datensouv.} & {Konstruktion:\\Reifegrad} & {Methodik:\\DSR} \\
+\midrule
+\SetCell[c=5]{l,font=\bfseries\itshape\color{gray!80!black}} Peer-reviewte Primärstudien (Datenbankrecherche 2023--2025) & & & & \\
+Abbas et al. \cite{Ab24} & -- & X & -- & -- \\
+Fratini et al. \cite{Fr24} & -- & X & (X) & -- \\
+Kianpour et al. \cite{KDW25} & -- & X & (X) & -- \\
+Mihale-Wilson \& Carl \cite{MC24} & X & X & -- & -- \\
+Opriel et al. \cite{Op25} & -- & X & -- & X \\
+von Scherenberg et al. \cite{SHO24} & -- & X & -- & -- \\
+Stoiber et al. \cite{St23} & -- & -- & X & X \\
+\midrule
+\SetCell[c=5]{l,font=\bfseries\itshape\color{gray!80!black}} Theoretische Grundlagen (Snowballing 2019--2020) & & & & \\
+Otto \& Jarke \cite{OJ19} & -- & X & X & X \\
+Pohle \& Thiel \cite{PT20} & -- & X & -- & -- \\
+\midrule
+\SetCell[c=5]{l,font=\bfseries\itshape\color{gray!80!black}} Normative und praxisorientierte Referenzdokumente & & & & \\
+BMBF Architekturkonzept \cite{BM24a} & X & X & (X) & -- \\
+BMBF / SPRIND Mitteilung \cite{BM24b} & X & X & -- & -- \\
+Deutscher Bundestag \cite{BT24} & X & (X) & -- & -- \\
+Gaia-X Architecture \cite{Ga23} & -- & X & X & -- \\
+IDSA Rulebook \cite{ID23} & -- & X & X & -- \\
+OECD Digital Education Outlook \cite{OE23} & X & X & (X) & -- \\
+ZenDiS Souveränitätscheck \cite{Ze26} & -- & X & (X) & -- \\
+\bottomrule
+\end{tblr}
+\vspace{0.25em}
+\raggedright\scriptsize
+\textbf{Legende:} X = Expliziter Primärfokus; (X) = Partielle Berücksichtigung (z.\,B. qualitative Kriterien ohne formales Reifegradmodell); -- = Kein systematischer Fokus im untersuchten Werk.
+\label{tab:konzeptmatrix}
+\end{table}
+
+Die Matrix verdeutlicht, dass zwar substanzielle Vorarbeiten zu Datensouveränität, Bildungsökosystemen und interorganisationalen Systemen vorliegen, bislang jedoch kein domänenspezifisches Reifegradmodell für digitale Souveränität in föderierten Bildungsökosystemen existiert, das sämtliche vier Kriterien integriert.
+
+Die Forschungslücke liegt daher nicht darin, dass digitale Souveränität als Begriff unbekannt wäre. Sie liegt vielmehr darin, dass ein domänenspezifisches, methodisch hergeleitetes und praxisnahes Bewertungsinstrument fehlt, das digitale Souveränität in Bildungsökosystemen strukturiert und operationalisiert. Diese Arbeit adressiert diese Lücke durch die Konstruktion eines taxonomisch hergeleiteten Reifegradmodells.
+
+\section{Konstruktion des Reifegradmodells}
+
+Die Konstruktion folgt etablierten Vorgehensweisen für nachvollziehbare Reifegradmodelle \cite{BKP09,PR11}. Daraus ergeben sich sechs Designanforderungen: DA1 Mehrdimensionalität, DA2 Operationalisierung, DA3 kompakte Anwendbarkeit, DA4 Vergleichbarkeit, DA5 Handlungsorientierung und DA6 Erweiterbarkeit und Evaluierbarkeit \cite{PT20,Fr24,SHO24,OE23,BM24a,PR11,TB23,He04,Pe07}. Diese Anforderungen bilden zugleich die Grundlage der Ex-ante-Evaluation in Abschnitt~4.2.
+
+Das Artefakt umfasst ein Dimensionenmodell, einen Kriterien- und Indikatorenkatalog, ein Self-Assessment auf einer Skala von 0 bis 5 sowie eine Metrik zur Bildung eines Reifegradprofils. Die Komponenten sind verbunden: Die Dimensionen strukturieren das Konstrukt, die Kriterien konkretisieren die Bewertungsbereiche und die Items übersetzen diese in Merkmale. Die Begrenzung dient der Vergleichbarkeit und Handlungsorientierung, nicht der Erfassung sämtlicher Facetten digitaler Souveränität.
+
+Das Meta-Charakteristikum bildet die organisationale und interorganisationale Fähigkeit zur selbstbestimmten, kontrollierten und verantwortungsvollen Gestaltung digitaler Ressourcen. Daraus wurden sechs Dimensionen abgeleitet, welche die organisationale Binnenperspektive mit den Anforderungen föderierter Zusammenarbeit verbinden. \textit{Governance und Entscheidungsautonomie} erfasst Strategien, Verantwortlichkeiten und Entscheidungsprozesse \cite{PT20,SHO24}. \textit{Daten- und Informationssouveränität} umfasst die Kontrolle über Datenbestände, Datenflüsse, Zugriffsrechte und Nutzungsregeln \cite{Ab24,SHO24,OJ19}. \textit{Technologische Abhängigkeiten} betreffen die Analyse und Steuerung externer Plattformen, proprietärer Systeme und Cloud-Infrastrukturen, nicht deren vollständige Vermeidung \cite{PT20,Fr24,BM24a,BT24}.
+
+\textit{Interoperabilität und Föderationsfähigkeit} beschreibt die kontrollierte Verbindung von Diensten, Daten und Prozessen über institutionelle Grenzen hinweg, ohne die Eigenständigkeit der Beteiligten aufzuheben \cite{OE23,BM24a,Ga23,ID23}. \textit{Kompetenzen und organisationale Fähigkeiten} umfassen Wissen, Rollen und Prozesse zur Umsetzung digitaler Souveränität \cite{PR11,St23}. \textit{Compliance, Sicherheit und Vertrauen} bündelt Datenschutz, Informationssicherheit, regulatorische Anforderungen und die Voraussetzungen vertrauenswürdiger Zusammenarbeit \cite{KDW25,Ze26}. Gemeinsam erfassen die Dimensionen sowohl interne Steuerungsfähigkeiten als auch die Anschlussfähigkeit einer Organisation.
+
+Die Dimensionen erfüllen die Ending Conditions nach Nickerson, Varshney und Muntermann \cite{NVM13}: Sie decken Aspekte ab, sind voneinander unterscheidbar, operationalisierbar und für eine empirische Weiterentwicklung offen. Der Kriterien- und Indikatorenkatalog in Abb.~1 basiert auf einem nach Mayring \cite{Ma14} entwickelten Codierleitfaden und einem Iterationsprotokoll nach Nickerson et al. \cite{NVM13}. Als Ergebnis der dritten, nach dem MECE-Prinzip geprüften Taxonomieiteration wurden jeder Dimension drei Kriterien zugeordnet. Diese Struktur reduziert Verzerrungen bei der Aggregation, erleichtert Vergleiche zwischen den Dimensionen und begrenzt den Erhebungsaufwand. Die Self-Assessment-Items wurden aus den Codierregeln abgeleitet, beispielsweise operationalisiert das Item zur digitalen Strategie den Code C-GOV-01. Die vollständige Traceability von Literaturbefunden über Codes und Kriterien bis zu den 18 Self-Assessment-Items sowie Codierleitfaden und Iterationsprotokoll sind im Online-Supplement dokumentiert:\newline
+\url{https://anonymous.4open.science/r/supplementary-material-5870}
+
+\begin{figure}[p]
+\centering
+\fontsize{7.4pt}{8.8pt}\selectfont
+\begin{tblr}{
+  width=\textwidth,
+  colspec={
+    Q[l,m,wd=2.9cm]
+    Q[l,m,wd=2.4cm]
+    X[l,m]
+  },
+  hline{1,2,20} = {0.08em,black},
+  hline{5,8,11,14,17} = {0.05em,gray!50},
+  row{1} = {font=\bfseries,c,m,bg=gray!15},
+  rowsep=0.8pt,
+  colsep=3.5pt
+}
+Dimension & Kriterium & Self-Assessment-Item \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Governance und Entscheidungsautonomie & Digitale Strategie & Inwieweit verfügt unsere Institution über eine dokumentierte Strategie zur souveränen Gestaltung digitaler Infrastrukturen? \\
+& Verantwortlichkeiten & Inwieweit sind Rollen und Verantwortlichkeiten für digitale Souveränität eindeutig definiert? \\
+& Entscheidungsprozesse & Inwieweit erfolgen Entscheidungen über zentrale digitale Dienste transparent und nachvollziehbar? \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Daten- und Informationssouveränität & Dateninventar & Inwieweit verfügt unsere Institution über eine Übersicht zentraler Datenbestände und Datenflüsse? \\
+& Zugriffskontrolle & Inwieweit sind Zugriffe auf sensible Daten geregelt, dokumentiert und überprüfbar? \\
+& Datennutzung & Inwieweit sind Regeln zur Nutzung, Weitergabe und Verarbeitung von Daten definiert? \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Technologische Abhängigkeiten & Anbieterabhängigkeit & Inwieweit sind kritische Abhängigkeiten von externen Plattformen oder Dienstleistern bekannt? \\
+& Exit-Fähigkeit & Inwieweit bestehen für zentrale digitale Dienste Exit-Strategien oder Alternativen? \\
+& Vertragsgestaltung & Inwieweit berücksichtigen Verträge mit Dienstleistern Anforderungen an Datenkontrolle und Portabilität? \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Interoperabilität und Föderationsfähigkeit & Offene Standards & Inwieweit werden für den Austausch von Daten und Diensten offene Standards genutzt? \\
+& Schnittstellen & Inwieweit verfügen zentrale Systeme über dokumentierte Schnittstellen? \\
+& Föderierte Zusammenarbeit & Inwieweit sind institutionenübergreifende digitale Prozesse technisch und organisatorisch geregelt? \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Kompetenzen und organisationale Fähigkeiten & Fachkompetenz & Inwieweit verfügen relevante Mitarbeitende über Kompetenzen zu Daten, Plattformen und digitaler Governance? \\
+& Schulung & Inwieweit existieren Schulungs- oder Sensibilisierungsangebote zu digitaler Souveränität? \\
+& Lernfähigkeit & Inwieweit werden Erfahrungen aus digitalen Projekten systematisch ausgewertet und genutzt? \\
+\midrule
+\SetCell[r=3]{l,m,font=\bfseries} Compliance, Sicherheit und Vertrauen & Datenschutz & Inwieweit werden Datenschutzanforderungen bei digitalen Diensten systematisch berücksichtigt? \\
+& Informationssicherheit & Inwieweit werden Risiken digitaler Infrastrukturen regelmäßig bewertet? \\
+& Transparenz & Inwieweit sind Regeln und Verantwortlichkeiten digitaler Zusammenarbeit für Beteiligte nachvollziehbar? \\
+\bottomrule
+\end{tblr}
+\vspace{0.3em}
+\caption{Kriterien- und Indikatorenkatalog; Quelle: Eigene Darstellung}
+\label{fig:kriterienkatalog}
+\end{figure}
+
+Für jedes Self-Assessment-Item wird eine sechsstufige Skala von 0 bis 5 verwendet (Tab.~2). Sie folgt der Logik organisationaler Reifegradmodelle, nach der Reife keinen binären Zustand, sondern einen zunehmenden Institutionalisierungsgrad organisationaler Fähigkeiten beschreibt \cite{BKP09,PR11}.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Bewertungsskala; Quelle: Eigene Darstellung}
+\vspace{0.3em}
+\begin{tblr}{
+  width=\textwidth,
+  colspec={Q[c,m,wd=0.08\textwidth] X[l,m]},
+  hline{1,2,8} = {0.08em,black},
+  row{1} = {font=\bfseries,c,m},
+  rowsep=2.2pt
+}
+Wert & Beschreibung \\
+\midrule
+0 & \textbf{Nicht vorhanden:} Das Kriterium ist nicht umgesetzt oder nicht bekannt. \\
+1 & \textbf{Ad hoc:} Erste Ansätze existieren, sind aber informell und nicht dokumentiert. \\
+2 & \textbf{Teilweise definiert:} Das Kriterium ist in einzelnen Bereichen umgesetzt, jedoch nicht flächendeckend. \\
+3 & \textbf{Standardisiert:} Kriterium ist dokumentiert und in relevanten Bereichen etabliert. \\
+4 & \textbf{Gesteuert:} Das Kriterium wird regelmäßig überprüft, gemessen oder aktiv gesteuert. \\
+5 & \textbf{Optimiert:} Kriterium wird kontinuierlich verbessert und weiterentwickelt. \\
+\bottomrule
+\end{tblr}
+\label{tab:bewertungsskala}
+\end{table}
+
+Die Skala ermöglicht eine differenzierte Bewertung, ohne eine unangemessene Scheingenauigkeit zu erzeugen. Sie eignet sich für das Self-Assessment, da qualitative Einschätzungen standardisiert erfasst und quantitativ weiterverarbeitet werden können. Die Stufen werden kumulativ interpretiert: Ein höherer Wert setzt voraus, dass auch die Merkmale der darunterliegenden Stufen erfüllt sind.
+
+Die Reifegradlogik bestimmt, wie die Kriterienbewertungen zu einem mehrdimensionalen Profil verdichtet werden. Sie berücksichtigt die Anforderungen an zentrale Reifekonstrukte, logisch aufeinander bezogene Stufen, unterschiedliche Granularitätsebenen und überprüfbare Kriterien nach Pöppelbuß und Röglinger \cite{PR11}. Die hierarchische Struktur aus Kriterien, Dimensionen und Gesamtprofil folgt zugleich de Bruin et al. \cite{dB05}.
+
+Jedes Kriterium $k$ einer Dimension $d$ erhält einen Wert $x_{dk} \in \{0, 1, 2, 3, 4, 5\}$. Zur Darstellung der Unterschiede innerhalb einer Dimension wird zunächst der Mittelwert ihrer drei Kriterien berechnet:
+\begin{equation}
+M_d = \frac{1}{3} \sum_{k=1}^{3} x_{dk}
+\end{equation}
+
+Der Mittelwert $M_d$ besitzt ausschließlich eine deskriptive Funktion. Er zeigt Unterschiede zwischen den Kriterien, bestimmt jedoch nicht den formalen Reifegrad der Dimension. Eine Gewichtung der Einzelkriterien ist aufgrund der nicht-kompensatorischen Aggregationslogik nicht vorgesehen. Jedes Kriterium bildet eine notwendige Voraussetzung für das Erreichen der jeweiligen Stufe. Der formale Reifegrad einer Dimension ergibt sich daher aus dem niedrigsten Kriterienwert:
+\begin{equation}
+L_d = \min\bigl(x_{d1}, x_{d2}, x_{d3}\bigr)
+\end{equation}
+
+Eine Dimension erreicht eine bestimmte Reifestufe nur, wenn alle zugehörigen Kriterien mindestens dieser Stufe entsprechen. Dadurch können hohe Bewertungen einzelner Kriterien grundlegende Defizite in anderen Bereichen nicht ausgleichen. Die dimensionsbezogene Bewertung folgt somit einer kumulativen Logik, bei der höhere Reifestufen auf den Anforderungen der jeweils vorherigen Stufen aufbauen. Das primäre Ergebnis ist kein eindimensionaler Gesamtindex, sondern ein Profil aus den sechs dimensionsbezogenen Reifegraden:
+\begin{equation}
+P = (L_1, L_2, \dots, L_6)
+\end{equation}
+
+Ergänzend werden die Mittelwerte $M_d$ ausgewiesen, um Unterschiede innerhalb der Dimensionen sichtbar zu machen. Für die Ableitung von Verbesserungsmaßnahmen werden zunächst die Kriterien mit den niedrigsten Werten betrachtet. Die nächste Reifegradstufe wird erreicht, sobald sämtliche Kriterien einer Dimension den entsprechenden Schwellenwert erfüllen. Damit verbindet die Reifegradlogik die deskriptive Standortbestimmung mit einer handlungsorientierten Priorisierung von Entwicklungsfeldern \cite{PR11}.
+
+\section{Demonstration und konzeptionelle Ex-ante-Evaluation}
+
+\subsection{Szenariobasierte Demonstration}
+
+Zur Illustration wird ein vollständig synthetisches Bildungsökosystem mit drei hypothetischen Institutionen betrachtet. Sämtliche Werte wurden zu Demonstrationszwecken konstruiert; es wurden keine realen Institutionen befragt. Das Szenario dient ausschließlich dazu, Berechnung und Interpretation des Reifegradprofils zu demonstrieren und stellt keine empirische Evaluation dar. Für jede Dimension werden Mittelwert $M_d$ und formaler Reifegrad $L_d$ berechnet. Letzterer entspricht dem niedrigsten Kriterienwert, sodass Schwächen nicht durch höhere Einzelbewertungen kompensiert werden. Die Werte werden als „Mittelwert / Reifegrad“ dargestellt (Tab.~3).
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Beispielhafte Selbstbewertung; Quelle: Eigene Darstellung}
+\vspace{0.3em}
+\begin{tblr}{
+  width=\textwidth,
+  colspec={
+    X[l,m]
+    Q[c,m,wd=0.20\textwidth]
+    Q[c,m,wd=0.20\textwidth]
+    Q[c,m,wd=0.20\textwidth]
+  },
+  hline{1,2,9} = {0.08em,black},
+  hline{8} = {0.05em,gray!60},
+  row{1} = {font=\bfseries,c,m},
+  row{8} = {font=\bfseries},
+  rowsep=2.4pt
+}
+Dimension & Institution A & Institution B & Institution C \\
+\midrule
+Governance und Entscheidungsautonomie & 3,33 / 3 & 2,00 / 1 & 4,00 / 4 \\
+Daten- und Informationssouveränität & 3,00 / 2 & 1,67 / 1 & 3,67 / 3 \\
+Technologische Abhängigkeiten & 2,33 / 2 & 1,33 / 1 & 3,00 / 2 \\
+Interoperabilität und Föderationsfähigkeit & 3,67 / 3 & 2,33 / 2 & 4,33 / 4 \\
+Kompetenzen und organisationale Fähigkeiten & 2,67 / 2 & 2,00 / 1 & 3,33 / 3 \\
+Compliance, Sicherheit und Vertrauen & 4,00 / 4 & 3,00 / 2 & 4,67 / 4 \\
+\midrule
+Reifegradprofil $P$ & (3; 2; 2; 3; 2; 4) & (1; 1; 1; 2; 1; 2) & (4; 3; 2; 4; 3; 4) \\
+\bottomrule
+\end{tblr}
+\label{tab:selbstbewertung}
+\end{table}
+
+Institution C weist das stärkste Reifegradprofil auf, zeigt jedoch Entwicklungsbedarf bei technologischen Abhängigkeiten. Institution A erreicht höhere Reifegrade in Governance, Interoperabilität und Compliance, während Institution B insbesondere bei Governance, Datenmanagement, Technologie und Kompetenzen grundlegende Defizite aufweist.
+
+Verbesserungsmaßnahmen richten sich jeweils auf die Kriterien mit dem niedrigsten Wert. Institution A sollte etwa Exit-Strategien und organisationale Kompetenzen weiterentwickeln. Institution B benötigt grundlegende Governance- und Datenmanagementstrukturen. Institution C kann technologische Abhängigkeiten reduzieren und etablierte Prozesse institutionsübergreifend standardisieren.
+
+Die Demonstration illustriert, wie Reifegradprofile Unterschiede und prioritäre Entwicklungsfelder sichtbar machen können. Aufgrund der synthetischen Daten erlaubt sie jedoch keine Aussagen über praktische Anwendbarkeit oder Validität des Modells.
+
+\subsection{Konzeptionelle Ex-ante-Evaluation}
+
+Zur Prüfung der konzeptionellen Passung wurde das entwickelte Artefakt systematisch den sechs Designanforderungen (DA1--DA6) gegenübergestellt. Die Analyse zeigt, dass die Anforderungen hinsichtlich Struktur, Kriterien- und Itemsystem, Reifegradlogik sowie modularer Weiterentwickelbarkeit weitgehend erfüllt werden. Offen bleiben insbesondere Aspekte, die einer empirischen Validierung bedürfen, darunter Vollständigkeit und Verständlichkeit der Kriterien, Messvalidität, praktischer Aufwand und Anwendungsrelevanz. Die vollständige Zuordnung der Designanforderungen zu den Artefaktkomponenten und den jeweiligen offenen Prüffragen ist im Anhang~C des Online-Supplements dokumentiert:\newline
+\url{https://anonymous.4open.science/r/supplementary-material-5870}
+
+\section{Diskussion und Ausblick}
+
+Der wissenschaftliche Beitrag der Arbeit liegt in der Operationalisierung digitaler Souveränität als mehrdimensionales Reifegradmodell. Damit wird ein abstraktes und normativ geprägtes Konzept in ein strukturiertes Bewertungsinstrument überführt. Das Modell schafft eine Grundlage für empirische Validierungen, vergleichende Fallstudien und die Weiterentwicklung entsprechender Messinstrumente.
+
+Der praktische Beitrag besteht in einem Self-Assessment, mit dem Organisationen ihren Entwicklungsstand einschätzen, Stärken und Schwächen identifizieren und Maßnahmen ableiten können. Dies ist besonders für Bildungsökosysteme relevant, in denen mehrere eigenständige Institutionen gemeinsame digitale Infrastrukturen nutzen. Dimensionen, Kriterien und Reifegradstufen machen digitale Souveränität zudem für Entscheidungsträger, IT-Verantwortliche und Governance-Akteure verständlicher und diskutierbarer.
+
+Aus Sicht der Wirtschaftsinformatik verbindet das Modell technisch-organisatorische Fähigkeiten mit wirtschaftlichen und strategischen Entscheidungen. Es kann dabei unterstützen, Investitionen zur Verringerung von Integrationsaufwänden, Vendor-Lock-in-Risiken und potenziellen Compliance-Kosten zu priorisieren. Damit dient es zugleich als Orientierungsinstrument für den gezielten Abbau asymmetrischer Abhängigkeiten.
+
+Das Reifegradmodell ist jedoch konzeptioneller Natur und muss in realen Bildungsökosystemen empirisch validiert werden. Der Verzicht auf eine statistische Prüfung der Inter-Coder-Reliabilität zugunsten einer diskursiven Konsensbildung begrenzt die intersubjektive Nachvollziehbarkeit der Taxonomie. Zudem unterliegt das Self-Assessment dem Risiko sozial erwünschter Antworten. Die symmetrische Begrenzung auf sechs Dimensionen mit drei Kriterien stellt einen Kompromiss dar.
+
+Ziel der Arbeit war die Konstruktion eines Reifegradmodells zur Bewertung digitaler Souveränität in föderierten Bildungsökosystemen. Ausgangspunkt war die Forschungslücke, dass digitale Souveränität zwar als relevantes Ziel der digitalen Transformation gilt, in interorganisationalen Bildungskontexten jedoch bislang nur unzureichend operationalisiert ist. Gerade die Verbindung institutioneller Eigenständigkeit mit gemeinsam genutzten Infrastrukturen erzeugt besondere Anforderungen an Governance, Datenkontrolle, technologische Abhängigkeiten, Interoperabilität, Kompetenzen und Sicherheit.
+
+Zur Bearbeitung dieser Problemstellung wurde im Rahmen des Design Science Research ein Artefakt entwickelt, das ein Dimensionenmodell, einen Kriterien- und Indikatorenkatalog, ein Self-Assessment sowie eine Reifegradlogik umfasst. Die sechs Dimensionen strukturieren digitale Souveränität in zentrale Bewertungsbereiche. Die 18 Items ermöglichen eine kompakte Einschätzung, deren Ergebnisse in einem mehrdimensionalen Stärken-Schwächen-Profil dargestellt werden.
+
+Die Ex-ante-Evaluation zeigt eine konzeptionelle Passung zwischen Designanforderungen und Artefaktkomponenten; deren empirische Validierung steht jedoch aus. Aufgrund der fehlenden Anwendung in realen Organisationen ist es jedoch als Prototyp und erster DSR-Zyklus zu verstehen.
+
+Zukünftige Forschung sollte daher die Verständlichkeit, Relevanz und Trennschärfe der Dimensionen, Kriterien und Items empirisch prüfen. Hierfür eignen sich Experteninterviews, Delphi-Studien, Fallstudien und Pilotanwendungen in Hochschulverbünden. Ergänzend sollten die Bewertungslogik und mögliche Gewichtungen untersucht sowie eine digitale Umsetzung als interaktives Assessment-Tool erprobt werden. Insgesamt zeigt die Arbeit, wie digitale Souveränität in Bildungsökosystemen in ein strukturiertes Bewertungsmodell überführt werden kann. Das entwickelte Reifegradmodell leistet damit einen Beitrag zur systematischen Bewertung, Kommunikation und Weiterentwicklung digitaler Souveränität in föderierten Bildungsstrukturen.
+
+\printbibliography
+
+\end{document}
